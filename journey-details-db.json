@@ -1,56 +1,70 @@
 {
-  "coverImg": "",
+  "coverImg": "https://images.unsplash.com/photo-1565879912201-86999a88cb70?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
   "title": "San Francisco",
-  "duration": "2 days",
-  "transport": "San Francisco International Airport",
-  "hotel": "",
+  "durationInDays": 2,
+  "accomodation": "Hilton San Francisco Union Square",
+  "coordinates": {
+    "lat": 44.45566,
+    "lng": 44.23789
+  },
   "stages": [
     {
-      "stage_title": "day 1",
+      "title": "day 1",
       "description": "Golden Gate Bridge - Alcatraz",
       "todos": [
         {
-          "todos_title": "Golden gate bridge"
-        },
-        {
-          "todos": "Visit lorem ipsum",
+          "name": "Golden gate bridge",
           "completed": false
         },
         {
-          "todos": "Golden Gate Bridge",
+          "name": "Round-trip boat to/from Alcatraz island",
+          "completed": false
+        },
+        {
+          "name": "Fisherman's Wharf",
           "completed": false
         }
       ]
     },
     {
       "title": "day 2",
-      "description": "Lorem ipsusfsem",
+      "description": "Chinatown - Union Square",
       "todos": [
         {
-          "todos_title": "Golden gate bridge"
-        },
-        {
-          "todos": "Visit bunker",
+          "name": "Coit Tower ",
           "completed": false
         },
         {
-          "todos": "Visit pedrera",
+          "name": "China Town",
           "completed": false
         },
         {
-          "todos_title": "Golden gate bridge"
+          "name": "Union Square",
+          "completed": false
         },
         {
-          "todos": "Visit pedrera",
+          "name": "Asian Art Museum",
+          "completed": false
+        },
+        {
+          "name": "City All",
           "completed": false
         }
       ]
     }
   ],
-  "restaurant": "Restaurant",
-  "name": "",
-  "address": "",
-  "suggested_for": "",
-  "food": "",
-  "notes": ""
+  "restaurants": [
+    {
+      "name": "Roka Akor",
+      "address": "801 Montgomery St",
+      "cuisineTypes": ["Sushi"],
+      "suggestedFor": ["Dinner"]
+    },
+    {
+      "name": "Bistro Boudin",
+      "address": "160 Jefferson St. San Francisco",
+      "cuisineTypes": ["American", "Sea-food"],
+      "suggestedFor": ["Lunch", "Brunch"]
+    }
+  ]
 }
