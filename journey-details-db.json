@@ -1,0 +1,56 @@
+{
+  "coverImg": "",
+  "title": "San Francisco",
+  "duration": "2 days",
+  "transport": "San Francisco International Airport",
+  "hotel": "",
+  "stages": [
+    {
+      "stage_title": "day 1",
+      "description": "Golden Gate Bridge - Alcatraz",
+      "todos": [
+        {
+          "todos_title": "Golden gate bridge"
+        },
+        {
+          "todos": "Visit lorem ipsum",
+          "completed": false
+        },
+        {
+          "todos": "Golden Gate Bridge",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "title": "day 2",
+      "description": "Lorem ipsusfsem",
+      "todos": [
+        {
+          "todos_title": "Golden gate bridge"
+        },
+        {
+          "todos": "Visit bunker",
+          "completed": false
+        },
+        {
+          "todos": "Visit pedrera",
+          "completed": false
+        },
+        {
+          "todos_title": "Golden gate bridge"
+        },
+        {
+          "todos": "Visit pedrera",
+          "completed": false
+        }
+      ]
+    }
+  ],
+  "restaurant": "Restaurant",
+  "name": "",
+  "address": "",
+  "suggested_for": "",
+  "food": "",
+  "notes": ""
+}
