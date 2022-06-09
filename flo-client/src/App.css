@@ -1,5 +1,5 @@
 .marker {
-  
+    
     position: absolute;
     top: 50%;
     left: 50%;
@@ -10,4 +10,5 @@
     border-radius: 100%;
     user-select: none;
     transform: translate(-50%, -50%);
+    
 }

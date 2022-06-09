@@ -22,7 +22,6 @@
     "express": "^4.18.1",
     "google-map-react": "^2.1.10",
     "mongoose": "^6.3.5",
-    "nodemon": "^2.0.16",
-    "styled-components": "^5.3.5"
+    "nodemon": "^2.0.16"
   }
 }
