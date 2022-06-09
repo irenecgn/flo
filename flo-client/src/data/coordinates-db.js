@@ -10,8 +10,8 @@ export const coordinates = [
     lng: -118.243683,
   },
   {
-    city: 'Las Vegas',
-    lat: 38.75486,
-    lng: -121.29213,
+    city: 'San Diego',
+    lat: 32.715736,
+    lng: -117.161087,
   },
 ];

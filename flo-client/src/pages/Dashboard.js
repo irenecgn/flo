@@ -8,13 +8,24 @@ const Journeycontainer = styled.div`
   grid-template-columns: 1fr 1fr;
 `;
 
-const Dashboard = () => {
+const Dashboard = ({ journeys }) => {
+  // const [coordinate, setCoordinates] = useState([]);
+
+  // async function getCoordinate() {
+  //   const data = await getAllJourneys();
+  //   setCoordinates(data);
+  // }
+
+  // useEffect(() => {
+  //   getCoordinate();
+  // }, []);
+
   return (
     <div>
       <Searchbar />
       <Journeycontainer>
         <Sidebar />
-        <Map />
+        <Map coordinates={journeys} />
       </Journeycontainer>
     </div>
   );

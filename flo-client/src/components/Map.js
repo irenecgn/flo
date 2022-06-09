@@ -1,6 +1,6 @@
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import styled from 'styled-components';
-import { coordinates } from '../data/coordinates-db.js';
+import Location from './Location';
 
 const MapDiv = styled.div`
   display: flex;
@@ -9,22 +9,9 @@ const MapDiv = styled.div`
   height: 800px;
 `;
 
-// const Marker = styled.div`
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   width: 18px;
-//   height: 18px;
-//   background-color: #000;
-//   border: 2px solid #fff;
-//   border-radius: 100%;
-//   user-select: none;
-//   transform: translate(-50%, -50%);
-// `;
+const API_KEY = 'AIzaSyD2Tw5TQfpJYUKOVMBBNB-6wmdO8GZtAi8';
 
-const Map = () => {
-  const API_KEY = 'AIzaSyD2Tw5TQfpJYUKOVMBBNB-6wmdO8GZtAi8';
-
+const Map = ({ coordinates }) => {
   const mapContainer = {
     lat: 37.433431,
     lng: -100.500331,
@@ -37,23 +24,23 @@ const Map = () => {
 
   return (
     <MapDiv>
-      <LoadScript googleMapsApiKey={API_KEY}>
+      <LoadScript googleMapsApiKey={API_KEY} language='en'>
         <GoogleMap
           className='GoogleMap'
           mapContainerStyle={containerStyle}
           center={mapContainer}
           zoom={5}
         >
-          {coordinates.map((coord) => {
-            return (
-              <div>
-                <Marker
-                  key={coord.city}
-                  position={{ lat: coord.lat, lng: coord.lng }}
-                />
-              </div>
-            );
-          })}
+          {coordinates &&
+            coordinates.map((coord) => {
+              return (
+                <Location
+                  key={coord.title}
+                  id={coord._id}
+                  coord={coord.coordinates}
+                ></Location>
+              );
+            })}
         </GoogleMap>
       </LoadScript>
     </MapDiv>

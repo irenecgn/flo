@@ -2,6 +2,8 @@
 import './App.css';
 import Router from './Router';
 import styled from 'styled-components';
+import { getAllJourneys } from './Utilities/Service.js';
+import { useState, useEffect } from 'react';
 
 const Main = styled.div`
   display: grid;
@@ -11,9 +13,20 @@ const Main = styled.div`
 `;
 
 function App() {
+  const [journeys, setJourneys] = useState([]);
+
+  async function getJourneys() {
+    const data = await getAllJourneys();
+    setJourneys(data);
+  }
+
+  useEffect(() => {
+    getJourneys();
+  }, []);
+
   return (
     <Main>
-      <Router />
+      <Router journeys={journeys} />
     </Main>
   );
 }

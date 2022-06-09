@@ -13,12 +13,17 @@ const getAllJourneys = async function (req, res) {
 
 const getJourneysById = async function (req, res) {
   try {
-    const getJourneyById = await Journey.findById(req.params.id);
+    console.log('looking');
+    console.log(req.params);
+    const journeyData = await Journey.findById(req.params.id);
+
     res.status(200);
-    res.send(getJourneyById);
+    console.log('found');
+    res.send(journeyData);
   } catch (error) {
     console.log(error);
     res.status(500);
+    res.send('Something went wrong');
   }
 };
 
