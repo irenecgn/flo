@@ -15,27 +15,25 @@ const Input = styled.input`
   border: none;
 `;
 
-const Searchbar = ({ coordinates, setSearchCity }) => {
-  const [searchBar, setSearchBar] = useState('');
+const Searchbar = ({ coordinates, setSearchCity, onChange }) => {
+  // const handleChange = (value) => {
+  //   const lowerCase = value.target.value.toLowerCase();
+  //   console.log('LOWER', lowerCase);
+  //   setSearchBar(lowerCase);
 
-  const handleChange = (value) => {
-    const lowerCase = value.target.value.toLowerCase();
-    console.log('LOWER', lowerCase);
-    setSearchBar(lowerCase);
-
-    const coord = coordinates.filter((el) => {
-      console.log('THE EL', el.title);
-      return el.title.toLowerCase() === lowerCase;
-    });
-    setSearchCity(coord);
-  };
+  //   const coord = coordinates.filter((el) => {
+  //     console.log('THE EL', el.title);
+  //     return el.title.toLowerCase() === lowerCase;
+  //   });
+  //   setSearchCity(coord);
+  // };
 
   return (
     <Search>
       <Input
         type='search'
         placeholder='Where do you want to go?'
-        onChange={handleChange}
+        onChange={onChange}
       />
     </Search>
   );

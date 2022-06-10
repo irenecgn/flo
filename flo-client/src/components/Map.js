@@ -12,23 +12,17 @@ const MapDiv = styled.div`
 
 const API_KEY = 'AIzaSyD2Tw5TQfpJYUKOVMBBNB-6wmdO8GZtAi8';
 
-const Map = ({ coordinates, searchCity }) => {
-  const mapContainer = {
-    lat: 37.433431,
-    lng: -100.500331,
-  };
+const mapContainer = {
+  lat: 37.433431,
+  lng: -100.500331,
+};
 
-  const containerStyle = {
-    width: '1200px',
-    height: '800px',
-  };
+const containerStyle = {
+  width: '1200px',
+  height: '800px',
+};
 
-  const filterCoordinates = coordinates.filter((el) => {
-    console.log(el.title);
-    return el.title === searchCity;
-  });
-  console.log('FIlter', filterCoordinates);
-
+const Map = ({ journeys }) => {
   return (
     <MapDiv>
       <LoadScript googleMapsApiKey={API_KEY} language='en'>
@@ -38,13 +32,13 @@ const Map = ({ coordinates, searchCity }) => {
           center={mapContainer}
           zoom={5}
         >
-          {coordinates &&
-            coordinates.map((coord) => {
+          {journeys &&
+            journeys.map((journey) => {
               return (
                 <Location
-                  key={coord.title}
-                  id={coord._id}
-                  coord={coord.coordinates}
+                  key={journey._id}
+                  id={journey._id}
+                  coord={journey.coordinates}
                 ></Location>
               );
             })}
