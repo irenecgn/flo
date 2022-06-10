@@ -2,13 +2,12 @@ import React from 'react';
 import { Marker } from '@react-google-maps/api';
 import { useNavigate } from 'react-router-dom';
 
-function Location({ key, coord, id }) {
+function Location({ coord, id }) {
   const navigate = useNavigate();
 
   return (
     <Marker
-      key={key}
-      position={{ lat: coord.lat, lng: coord.lng }}
+      position={coord}
       onClick={() => {
         navigate('/journeys/' + id);
       }}

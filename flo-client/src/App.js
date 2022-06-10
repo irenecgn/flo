@@ -1,11 +1,7 @@
-//import logo from './logo.svg';
-import './App.css';
-import Router from './Router';
 import styled from 'styled-components';
-import { getAllJourneys } from './Utilities/Service.js';
-import { useState, useEffect } from 'react';
+import Router from './Router';
 
-const Main = styled.div`
+const Main = styled.main`
   display: grid;
   justify-content: center;
   gap: 32px;
@@ -13,20 +9,9 @@ const Main = styled.div`
 `;
 
 function App() {
-  const [journeys, setJourneys] = useState([]);
-
-  async function getJourneys() {
-    const data = await getAllJourneys();
-    setJourneys(data);
-  }
-
-  useEffect(() => {
-    getJourneys();
-  }, []);
-
   return (
     <Main>
-      <Router journeys={journeys} />
+      <Router />
     </Main>
   );
 }

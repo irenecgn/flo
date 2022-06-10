@@ -22,14 +22,13 @@ function Stages({ days }) {
   return (
     <Daycard>
       <h1 onClick={handleToggle}>Schedule</h1>
-      {isOpen && (
-        <div>
-          {days &&
-            days.map((el) => {
-              return <Day key={el.title} daysDescription={el}></Day>;
-            })}
-        </div>
-      )}
+
+      <div>
+        {days &&
+          days.map((el) => {
+            return <Day key={el.title} daysDescription={el}></Day>;
+          })}
+      </div>
     </Daycard>
   );
 }

@@ -2,10 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 //import { useState, useEffect } from 'react';
 
-const Title = styled.h1`
+const Title = styled.summary`
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
 `;
+
+const Detail = styled.details``;
 
 const Name = styled.h2`
   font-family: Arial, Helvetica, sans-serif;
@@ -20,10 +22,10 @@ function Day({ daysDescription }) {
   // };
 
   return (
-    <Title key={daysDescription.title}>
-      {daysDescription.title} - {daysDescription.description}{' '}
-      {/* {isOpen && (
-        <div> */}
+    <Detail>
+      <Title key={daysDescription.title}>
+        {daysDescription.title} - {daysDescription.description}{' '}
+      </Title>
       {daysDescription.todos.map((el) => {
         return (
           <Name key={el.title}>
@@ -32,9 +34,7 @@ function Day({ daysDescription }) {
           </Name>
         );
       })}
-      {/* </div> */}
-      {/* )} */}
-    </Title>
+    </Detail>
   );
 }
 

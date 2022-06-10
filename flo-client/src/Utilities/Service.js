@@ -9,13 +9,7 @@ export const getAllJourneys = async () => {
 
 //GET JOURNEY/:ID
 export const getJourneysById = async (id) => {
-  const res = await fetch(baseURL + '/' + id, {
-    method: 'GET',
-    headers: {
-      'Content-type': 'application/json',
-      Accept: 'application/json',
-    },
-  });
+  const res = await fetch(baseURL + '/' + id);
   if (res.status < 400) return await res.json();
   return Promise.reject(res);
 };
