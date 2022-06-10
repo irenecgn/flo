@@ -15,33 +15,32 @@ const JourneySchema = new mongoose.Schema({
   },
   coordinates: {
     lat: {
-      type: String,
+      type: Number,
     },
     lng: {
-      type: String,
+      type: Number,
     },
   },
-  stages: {
-    type: [
-      {
-        title: {
-          type: String,
-        },
-        description: {
-          type: String,
-        },
-        todos: [
-          {
-            name: {
-              type: String,
-            },
-            completed: Boolean,
-            default: false,
-          },
-        ],
+  stages: [
+    {
+      title: {
+        type: String,
       },
-    ],
-  },
+      description: {
+        type: String,
+      },
+      todos: [
+        {
+          name: {
+            type: String,
+          },
+          completed: Boolean,
+          default: false,
+        },
+      ],
+    },
+  ],
+
   restaurants: [
     {
       name: {

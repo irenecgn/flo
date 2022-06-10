@@ -8,7 +8,7 @@ function Location({ key, coord, id }) {
   return (
     <Marker
       key={key}
-      position={{ lat: JSON.parse(coord.lat), lng: JSON.parse(coord.lng) }}
+      position={{ lat: coord.lat, lng: coord.lng }}
       onClick={() => {
         navigate('/journeys/' + id);
       }}
