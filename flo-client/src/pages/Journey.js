@@ -3,7 +3,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import { getJourneysById } from '../Utilities/Service';
 import styled from 'styled-components';
-import Stages from '../components/Stages';
+import Schedule from '../components/Schedule';
 
 const Container = styled.div`
   ${'' /* border: 1px solid blue; */}
@@ -78,7 +78,7 @@ function Journey() {
       <JourneyCard>
         <Duration>Numbers of days: {journey.durationInDays}</Duration>
       </JourneyCard>
-      <Stages days={journey.stages}></Stages>
+      <Schedule days={journey.stages}></Schedule>
     </Container>
   );
 }
