@@ -1,3 +1,5 @@
+import e from 'cors';
+import { useState } from 'react';
 import styled from 'styled-components';
 
 const Search = styled.div`
@@ -13,10 +15,28 @@ const Input = styled.input`
   border: none;
 `;
 
-const Searchbar = () => {
+const Searchbar = ({ coordinates, setSearchCity }) => {
+  const [searchBar, setSearchBar] = useState('');
+
+  const handleChange = (value) => {
+    const lowerCase = value.target.value.toLowerCase();
+    console.log('LOWER', lowerCase);
+    setSearchBar(lowerCase);
+
+    const coord = coordinates.filter((el) => {
+      console.log('THE EL', el.title);
+      return el.title.toLowerCase() === lowerCase;
+    });
+    setSearchCity(coord);
+  };
+
   return (
     <Search>
-      <Input type='search' placeholder='Where do you want to go?' />
+      <Input
+        type='search'
+        placeholder='Where do you want to go?'
+        onChange={handleChange}
+      />
     </Search>
   );
 };

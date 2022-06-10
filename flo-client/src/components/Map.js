@@ -1,4 +1,5 @@
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
+
 import styled from 'styled-components';
 import Location from './Location';
 
@@ -11,7 +12,7 @@ const MapDiv = styled.div`
 
 const API_KEY = 'AIzaSyD2Tw5TQfpJYUKOVMBBNB-6wmdO8GZtAi8';
 
-const Map = ({ coordinates }) => {
+const Map = ({ coordinates, searchCity }) => {
   const mapContainer = {
     lat: 37.433431,
     lng: -100.500331,
@@ -21,6 +22,12 @@ const Map = ({ coordinates }) => {
     width: '1200px',
     height: '800px',
   };
+
+  const filterCoordinates = coordinates.filter((el) => {
+    console.log(el.title);
+    return el.title === searchCity;
+  });
+  console.log('FIlter', filterCoordinates);
 
   return (
     <MapDiv>

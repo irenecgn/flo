@@ -2,8 +2,6 @@ import styled from 'styled-components';
 import Day from './Day';
 import { useState } from 'react';
 
-const Container = styled.div``;
-
 const Daycard = styled.li`
   background: rgb(255, 255, 255);
   border-radius: 0.4em;
@@ -14,45 +12,26 @@ const Daycard = styled.li`
   cursor: pointer;
 `;
 
-// const DayTitle = styled.h1`
-//   font-family: Arial, Helvetica, sans-serif;
-//   font-size: 20px;
-// `;
-
-// const Schedule = styled.h2`
-//   font-family: Arial, Helvetica, sans-serif;
-//   font-size: 20px;
-//   margin: 8px;
-// `;
-
 function Stages({ days }) {
-  const [isAllOpen, setIsAllOpen] = useState(false);
+  const [isOpen, setOpen] = useState(false);
 
   const handleToggle = () => {
-    setIsAllOpen(!isAllOpen);
+    setOpen(!isOpen);
   };
 
   return (
-    <Container>
-      <Daycard>
-        <h1 onClick={handleToggle}>Schedule</h1>
-
-        {days &&
-          days.map((el) => {
-            return (
-              <Day
-                key={el.title}
-                daysDescription={el}
-                isAllOpen={isAllOpen}
-                setIsAllOpen={setIsAllOpen}
-              ></Day>
-            );
-          })}
-      </Daycard>
-    </Container>
+    <Daycard>
+      <h1 onClick={handleToggle}>Schedule</h1>
+      {isOpen && (
+        <div>
+          {days &&
+            days.map((el) => {
+              return <Day key={el.title} daysDescription={el}></Day>;
+            })}
+        </div>
+      )}
+    </Daycard>
   );
 }
-
-//when isAllOpen && isOpen && !isClose
 
 export default Stages;

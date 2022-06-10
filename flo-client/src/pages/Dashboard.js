@@ -2,6 +2,7 @@ import Map from '../components/Map';
 import Sidebar from '../components/Sidebar';
 import Searchbar from '../components/Searchbar';
 import styled from 'styled-components';
+import { useState } from 'react';
 
 const Journeycontainer = styled.div`
   display: grid;
@@ -9,23 +10,14 @@ const Journeycontainer = styled.div`
 `;
 
 const Dashboard = ({ journeys }) => {
-  // const [coordinate, setCoordinates] = useState([]);
-
-  // async function getCoordinate() {
-  //   const data = await getAllJourneys();
-  //   setCoordinates(data);
-  // }
-
-  // useEffect(() => {
-  //   getCoordinate();
-  // }, []);
+  const [searchCity, setSearchCity] = useState([]);
 
   return (
     <div>
-      <Searchbar />
+      <Searchbar setSearchCity={setSearchCity} coordinates={journeys} />
       <Journeycontainer>
         <Sidebar />
-        <Map coordinates={journeys} />
+        <Map searchCity={searchCity} coordinates={journeys} />
       </Journeycontainer>
     </div>
   );

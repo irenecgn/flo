@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { getJourneysById } from '../Utilities/Service';
 import styled from 'styled-components';
 import Schedule from '../components/Schedule';
+import Restaurant from '../components/Restaurants';
 
 const Container = styled.div`
   ${'' /* border: 1px solid blue; */}
@@ -79,6 +80,8 @@ function Journey() {
         <Duration>Numbers of days: {journey.durationInDays}</Duration>
       </JourneyCard>
       <Schedule days={journey.stages}></Schedule>
+      <h1>Restaurant</h1>
+      <Restaurant place={journey.restaurants} />
     </Container>
   );
 }
