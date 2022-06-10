@@ -2,9 +2,9 @@ const Journey = require('../models/Journey');
 
 const getAllJourneys = async function (req, res) {
   try {
-    const getJourney = await Journey.find();
+    const journeys = await Journey.find({}, '_id coordinates title');
     res.status(200);
-    res.send(getJourney);
+    res.send(journeys);
   } catch (error) {
     console.log(error);
     res.status(500);
