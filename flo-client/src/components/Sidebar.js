@@ -27,13 +27,14 @@ const Name = styled.h1`
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
   line-height: 1.75;
+  color: #25292d;
 `;
 
 const ProfilePicture = styled.img`
   height: 72px;
   width: 72px;
-  margin-top: 6%;
-  border: 1px solid #f3c4c7;
+  margin-top: 8%;
+  border: 1px solid #bed6ef;
   border-radius: 50%;
   padding: 2px;
   margin: 20px;
@@ -47,8 +48,7 @@ const Addtrip = styled.button`
   background: #fcfcfc;
   border: 1px solid #f7f5f5;
   transition: all 0.3s;
-  box-shadow: 1px 1px 12px #c5c5c5, -1px -1px 12px #f5f5f5;
-  width: 420px;
+  width: 300px;
   margin: 24px;
 `;
 
@@ -67,6 +67,17 @@ const Travelscroll = styled.div`
   overflow: scroll;
 `;
 
+const Travel = styled.p`
+  margin: 8px;
+  @import url('https://fonts.googleapis.com/css?family=Poppins:400');
+  align-self: center;
+  font-size: 1.4rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  line-height: 1.75;
+  color: #25292d;
+`;
+
 const SideBar = () => {
   return (
     <Userbar>
@@ -75,20 +86,21 @@ const SideBar = () => {
         <Name> Irene </Name>
       </Info>
       <UserTravel>
-        <h2>Your Travel</h2>
+        <h2>Your Travel:</h2>
         <Travelscroll>
-          <p>San Diego</p>
-          <p>Los Angeles</p>
-          <p>Las Vegas</p>
-          <p>San Francisco</p>
-          <p>Las Vegas</p>
-          <p>San Francisco</p>
+          <Travel>San Diego</Travel>
+          <Travel>Los Angeles</Travel>
+          <Travel>Las Vegas</Travel>
+          <Travel>San Francisco</Travel>
+          <Travel>Berlin</Travel>
+          <Travel>Barcelona</Travel>
+          <Travel>Tokio</Travel>
         </Travelscroll>
         <h2>Next travel: </h2>
         <Travelscroll>
-          <p>Marrakesh</p>
-          <p>London</p>
-          <p>Rio de Janeiro</p>
+          <Travel>Marrakesh</Travel>
+          <Travel>London</Travel>
+          <Travel>Rio de Janeiro</Travel>
         </Travelscroll>
       </UserTravel>
       <Addtrip>Add a trip 📍</Addtrip>

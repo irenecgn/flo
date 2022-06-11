@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import React from 'react';
 import irene from '../images/irenecgn.png';
+import { addNewNote } from '../Utilities/Service';
+import { useState } from 'react';
 
 const Userbar = styled.div`
   height: 800px;
@@ -19,7 +21,7 @@ const ProfilePicture = styled.img`
   height: 72px;
   width: 72px;
   margin-top: 6%;
-  border: 1px solid #f3c4c7;
+  border: 1px solid #bed6ef;
   border-radius: 50%;
   padding: 2px;
   margin: 20px;
@@ -40,7 +42,7 @@ const Info = styled.div`
   border: rgb(250, 250, 250) 0.2em solid;
 `;
 
-const Notes = styled.div`
+const Notes = styled.form`
   border: 1px solid red;
 `;
 
@@ -59,22 +61,34 @@ const Addtrip = styled.button`
   font-size: 18px;
   border-radius: 0.5em;
   background: #fcfcfc;
-  ${'' /* border: 1px solid #f7f5f5; */}
   transition: all 0.3s;
-  ${'' /* box-shadow: 1px 1px 8px #c5c5c5, -1px -1px 12px #f5f5f5; */}
   width: 420px;
   margin: 24px;
 `;
-function JourneyBar() {
+function JourneyBar({ id }) {
+  const [notes, setNotes] = useState('');
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const noteInput = {
+      note: event.target.note.value,
+      _id: id,
+    };
+    await addNewNote(noteInput);
+    setNotes(noteInput);
+    event.target.reset();
+  };
+
   return (
     <Userbar>
       <Info>
         <ProfilePicture src={irene} alt='Profile picture' />
         <Name> Irene </Name>
       </Info>
-      <Notes>
+      <Notes onSubmit={handleSubmit}>
         <Addnote type='text' name='note'></Addnote>
         <button>Add note ✏️</button>
+        <ul>{notes && notes.map((el) => <li key={el.id}>{el.notes}</li>)}</ul>
       </Notes>
       <Addtrip>Back to map </Addtrip>
     </Userbar>

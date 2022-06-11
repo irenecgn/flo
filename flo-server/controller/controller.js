@@ -1,4 +1,5 @@
 const Journey = require('../models/Journey');
+// const Note = require('../models/Notes');
 
 const getAllJourneys = async function (req, res) {
   try {
@@ -8,6 +9,7 @@ const getAllJourneys = async function (req, res) {
   } catch (error) {
     console.log(error);
     res.status(500);
+    res.send('Something went wrong');
   }
 };
 
@@ -23,4 +25,33 @@ const getJourneysById = async function (req, res) {
   }
 };
 
-module.exports = { getAllJourneys, getJourneysById };
+// const postNewNote = async function (req, res) {
+//   try {
+//     console.log(req.body);
+//     const noteCreated = await Note.create(req.body);
+//     res.status(201);
+//     res.send(noteCreated);
+//   } catch (error) {
+//     console.log(error);
+//     res.status(500);
+//     res.send('Something went wrong');
+//   }
+// };
+
+const addNewNote = async function (req, res) {
+  try {
+    const data = req.body.note;
+
+    const addNote = await Journey.findByIdAndUpdate(req.params.id, {
+      $push: { note: data },
+    });
+    res.status(201);
+    res.send(addNote);
+  } catch (error) {
+    console.log(error);
+    res.status(500);
+    res.send('Something went wrong');
+  }
+};
+
+module.exports = { getAllJourneys, getJourneysById, addNewNote };

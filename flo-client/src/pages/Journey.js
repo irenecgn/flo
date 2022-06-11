@@ -16,9 +16,6 @@ const Container = styled.div`
 const Topbar = styled.div`
   height: 180px;
   width: 900px;
-  display: flex;
-  align-items: flex-end;
-  ${'' /* border: 1px solid green; */}
 `;
 const Photo = styled.img`
   width: 900px;
@@ -35,6 +32,7 @@ const Title = styled.h1`
   color: whitesmoke;
   position: relative;
   width: 400px;
+  text-shadow: 1px 1px;
 `;
 
 const JourneyCard = styled.div`
@@ -67,7 +65,6 @@ function Journey() {
   let { id } = useParams();
 
   const [journey, setJourney] = useState([]);
-  console.log(journey);
 
   const journeyById = useCallback(
     async (id) => {
@@ -83,10 +80,10 @@ function Journey() {
 
   return (
     <Container>
-      <JourneyBar></JourneyBar>
+      <JourneyBar id={id}></JourneyBar>
       <div>
-        <Photo alt={journey.title} src={journey.coverImg}></Photo>
         <Topbar>
+          <Photo alt={journey.title} src={journey.coverImg}></Photo>
           <Title>{journey.title}</Title>
         </Topbar>
         <JourneyCard>

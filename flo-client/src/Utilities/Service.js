@@ -13,3 +13,16 @@ export const getJourneysById = async (id) => {
   if (res.status < 400) return await res.json();
   return Promise.reject(res);
 };
+
+//POST JOURNEY/:ID/NOTES
+export const addNewNote = async function (notes) {
+  const res = await fetch(baseURL + `/${notes._id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify(notes),
+  });
+  if (res < 400) return res.json();
+  return Promise.reject(res);
+};

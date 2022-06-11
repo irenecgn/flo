@@ -38,7 +38,6 @@ const ResAdd = styled.h2`
 `;
 
 function Restaurants({ place }) {
-  console.log(place);
   return (
     <Container>
       {place &&

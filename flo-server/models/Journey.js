@@ -57,6 +57,13 @@ const JourneySchema = new mongoose.Schema({
       },
     },
   ],
+  notes: [
+    {
+      note: {
+        type: String,
+      },
+    },
+  ],
 });
 
 module.exports = mongoose.model('Journey', JourneySchema);

@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-//import { useState, useEffect } from 'react';
 
 const Title = styled.summary`
   @import url('https://fonts.googleapis.com/css?family=Poppins:400');
