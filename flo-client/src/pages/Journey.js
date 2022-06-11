@@ -6,8 +6,11 @@ import styled from 'styled-components';
 import Schedule from '../components/Schedule';
 import Restaurant from '../components/Restaurants';
 
+import JourneyBar from '../components/JourneyBar';
+
 const Container = styled.div`
-  ${'' /* border: 1px solid blue; */}
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 `;
 
 const Topbar = styled.div`
@@ -22,11 +25,12 @@ const Photo = styled.img`
   height: 300px;
   position: absolute;
   border-radius: 0.4em;
+  border: rgb(250, 250, 250) 0.2em solid;
 `;
 
 const Title = styled.h1`
   font-family: Arial, Helvetica, sans-serif;
-  margin: 4px;
+  margin: 8px;
   font-size: 40px;
   color: whitesmoke;
   position: relative;
@@ -34,8 +38,6 @@ const Title = styled.h1`
 `;
 
 const JourneyCard = styled.div`
-  ${'' /* border: 1px solid red; */}
-
   width: 900px;
   height: 100px;
   background: rgb(255, 255, 255);
@@ -51,8 +53,17 @@ const Duration = styled.h2`
   margin: 8px;
 `;
 
+const Restitle = styled.h2`
+  @import url('https://fonts.googleapis.com/css?family=Poppins:400');
+  font-size: 2rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  line-height: 1.75;
+  margin: 8px;
+  padding: 2px;
+`;
+
 function Journey() {
-  // console.log('HOLA', journeyId);
   let { id } = useParams();
 
   const [journey, setJourney] = useState([]);
@@ -72,16 +83,19 @@ function Journey() {
 
   return (
     <Container>
-      <Topbar>
+      <JourneyBar></JourneyBar>
+      <div>
         <Photo alt={journey.title} src={journey.coverImg}></Photo>
-        <Title>{journey.title}</Title>
-      </Topbar>
-      <JourneyCard>
-        <Duration>Numbers of days: {journey.durationInDays}</Duration>
-      </JourneyCard>
-      <Schedule days={journey.stages}></Schedule>
-      <h1>Restaurant</h1>
-      <Restaurant place={journey.restaurants} />
+        <Topbar>
+          <Title>{journey.title}</Title>
+        </Topbar>
+        <JourneyCard>
+          <Duration>Numbers of days: {journey.durationInDays}</Duration>
+        </JourneyCard>
+        <Schedule days={journey.stages}></Schedule>
+        <Restitle>Restaurant</Restitle>
+        <Restaurant place={journey.restaurants} />
+      </div>
     </Container>
   );
 }

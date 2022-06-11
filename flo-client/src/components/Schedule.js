@@ -12,6 +12,16 @@ const Daycard = styled.li`
   cursor: pointer;
 `;
 
+const Scheduletitle = styled.h1`
+  @import url('https://fonts.googleapis.com/css?family=Poppins:400');
+  font-size: 2rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  line-height: 1.75;
+  margin: 8px;
+  padding: 2px;
+`;
+
 function Stages({ days }) {
   const [isOpen, setOpen] = useState(false);
 
@@ -21,8 +31,7 @@ function Stages({ days }) {
 
   return (
     <Daycard>
-      <h1 onClick={handleToggle}>Schedule</h1>
-
+      <Scheduletitle onClick={handleToggle}>Schedule</Scheduletitle>
       <div>
         {days &&
           days.map((el) => {
