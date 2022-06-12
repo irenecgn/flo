@@ -41,7 +41,6 @@ const getJourneysById = async function (req, res) {
 const addNewNote = async function (req, res) {
   try {
     const data = req.body.note;
-
     const addNote = await Journey.findByIdAndUpdate(req.params.id, {
       $push: { note: data },
     });

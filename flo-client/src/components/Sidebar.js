@@ -3,100 +3,75 @@ import irene from '../images/irenecgn.png';
 import BlurredBox from './BlurredBox';
 
 const Userbar = styled(BlurredBox)`
-  width: 300px;
+  display: flex;
+  flex-direction: column;
+  max-width: 380px;
+  height: 600px;
   top: 88px;
 `;
 
 const Info = styled.div`
   display: flex;
-  flex-direction: row;
-  border: rgb(250, 250, 250) 0.2em solid;
+  width: 360px;
+  height: 74px;
+  border-radius: 8px;
+  background-color: rgba(250, 250, 250, 0.8);
+  padding: 8px;
 `;
 
 const Name = styled.h1`
-  @import url('https://fonts.googleapis.com/css?family=Poppins:400');
   align-self: center;
-  font-size: 2rem;
-  font-family: 'Poppins', sans-serif;
+  font-size: 28px;
   font-weight: 400;
-  line-height: 1.75;
   color: #25292d;
+  padding: 12px;
 `;
 
 const ProfilePicture = styled.img`
-  height: 72px;
-  width: 72px;
-  margin-top: 8%;
+  height: 60px;
+  width: 60px;
   border: 1px solid #bed6ef;
-  border-radius: 50%;
-  padding: 2px;
-  margin: 20px;
-`;
-
-const Addtrip = styled.button`
-  color: #090909;
-  padding: 0.7em 1.7em;
-  font-size: 18px;
-  border-radius: 0.5em;
-  background: #fcfcfc;
-  border: 1px solid #f7f5f5;
-  transition: all 0.3s;
-  width: 300px;
-  margin: 24px;
+  border-radius: 8px;
 `;
 
 const UserTravel = styled.div`
-  display: grid;
-  justify-content: start;
-  padding: 0.7em 1.7em;
-  border: rgb(250, 250, 250) 0.2em solid;
+  width: 360px;
+  background-color: rgba(250, 250, 250, 0.6);
+  border-radius: 8px;
 `;
 
 const Travelscroll = styled.div`
-  width: 420px;
-  height: 200px;
-  border: 2px solid white;
-  border-radius: 4px;
+  border: none;
+  border-radius: 8px;
   overflow: scroll;
 `;
 
 const Travel = styled.p`
   margin: 8px;
-  @import url('https://fonts.googleapis.com/css?family=Poppins:400');
   align-self: center;
   font-size: 1.4rem;
-  font-family: 'Poppins', sans-serif;
   font-weight: 400;
-  line-height: 1.75;
   color: #25292d;
 `;
 
 const SideBar = () => {
   return (
     <Userbar>
-      {/* <Info>
+      <Info>
         <ProfilePicture src={irene} alt='Profile picture' />
-        <Name> Irene </Name>
+        <Name> Irene Cagnoni</Name>
       </Info>
+
       <UserTravel>
-        <h2>Your Travel:</h2>
+        <Name>Your Travel:</Name>
         <Travelscroll>
           <Travel>San Diego</Travel>
           <Travel>Los Angeles</Travel>
           <Travel>Las Vegas</Travel>
           <Travel>San Francisco</Travel>
-          <Travel>Berlin</Travel>
-          <Travel>Barcelona</Travel>
-          <Travel>Tokio</Travel>
-        </Travelscroll>
-        <h2>Next travel: </h2>
-        <Travelscroll>
-          <Travel>Marrakesh</Travel>
-          <Travel>London</Travel>
-          <Travel>Rio de Janeiro</Travel>
+          <Travel>New York</Travel>
         </Travelscroll>
       </UserTravel>
-      <Addtrip>Add a trip 📍</Addtrip> */}
     </Userbar>
   );
 };

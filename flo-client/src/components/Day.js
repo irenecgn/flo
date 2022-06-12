@@ -2,19 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Title = styled.summary`
-  @import url('https://fonts.googleapis.com/css?family=Poppins:400');
-  font-size: 1.4rem;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 400;
-  line-height: 1.75;
+  font-size: 28px;
   margin: 2px;
   padding: 2px;
 `;
 
-const Detail = styled.details``;
+const Detail = styled.details`
+  cursor: pointer;
+`;
 
 const Name = styled.h2`
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
 `;
 
@@ -23,11 +20,6 @@ const Checkmark = styled.input`
 `;
 
 const Label = styled.label`
-  @import url('https://fonts.googleapis.com/css?family=Poppins:400');
-  font-size: 1rem;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 400;
-  line-height: 1.75;
   margin: 2px;
   padding: 2px;
 `;

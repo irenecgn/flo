@@ -9,9 +9,7 @@ const Container = styled.div`
   gap: 8px;
   padding: 16px;
   list-style: none;
-
   overflow: scroll;
-  width: 860px;
   border: rgb(250, 250, 250) 0.2em solid;
 `;
 
@@ -23,18 +21,15 @@ const RestaurantCard = styled.div`
   box-shadow: 0.3em 0.3em 0.7em #00000015;
   transition: border 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   border: rgb(250, 250, 250) 0.2em solid;
+  padding: 16px;
 `;
 
 const ResName = styled.h1`
-  @import url('https://fonts.googleapis.com/css?family=Poppins:400');
   font-size: 20px;
-  font-family: 'Poppins', sans-serif;
 `;
 
-const ResAdd = styled.h2`
-  @import url('https://fonts.googleapis.com/css?family=Poppins:400');
+const ResAddress = styled.h2`
   font-size: 16px;
-  font-family: 'Poppins', sans-serif;
 `;
 
 function Restaurants({ place }) {
@@ -45,7 +40,7 @@ function Restaurants({ place }) {
           return (
             <RestaurantCard>
               <ResName>{el.name}</ResName>
-              <ResAdd>{el.address}</ResAdd>
+              <ResAddress>{el.address}</ResAddress>
               <li>{el.cuisineTypes}</li>
               <li>{el.suggestedFor}</li>
             </RestaurantCard>

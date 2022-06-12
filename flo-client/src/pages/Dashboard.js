@@ -4,11 +4,11 @@ import Header from '../components/Header';
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 import { getAllJourneys } from '../Utilities/Service';
+import FullContainer from '../components/FullContainer';
+import AddTrip from '../components/AddTrip';
 
-const HomeContainer = styled.div`
-  width: 100%;
+const MapContainer = styled(FullContainer)`
   height: 100%;
-  position: relative;
 `;
 
 const Dashboard = () => {
@@ -34,11 +34,12 @@ const Dashboard = () => {
   );
 
   return (
-    <HomeContainer>
+    <MapContainer>
       <Map journeys={filteredJourneys} />
       <Header onChange={handleChange} />
       <Sidebar />
-    </HomeContainer>
+      <AddTrip />
+    </MapContainer>
   );
 };
 

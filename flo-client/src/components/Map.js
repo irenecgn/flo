@@ -2,8 +2,6 @@ import { GoogleMap, LoadScript } from '@react-google-maps/api';
 
 import Location from './Location';
 
-import styled from 'styled-components';
-
 const mapContainer = {
   lat: 37.433431,
   lng: -100.500331,

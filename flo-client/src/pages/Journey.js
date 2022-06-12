@@ -7,59 +7,36 @@ import Schedule from '../components/Schedule';
 import Restaurant from '../components/Restaurants';
 
 import JourneyBar from '../components/JourneyBar';
+import Header from '../components/Header';
+import FullContainer from '../components/FullContainer';
 import Container from '../components/Container';
 
-// const Container = styled.div`
-//   display: grid;
-//   grid-template-columns: 1fr 1fr;
-// `;
-
-const Topbar = styled.div`
-  height: 180px;
-  width: 900px;
+const Photo = styled.div`
+  width: 100%;
+  min-height: 300px;
+  height: 25vw;
+  background-image: url('${(props) => props.src}');
+  background-repeat: no-repeat;
+  background-size: cover;
 `;
-const Photo = styled.img`
-  width: 900px;
-  height: 300px;
+
+const TitleContainer = styled.div`
   position: absolute;
-  border-radius: 0.4em;
-  border: rgb(250, 250, 250) 0.2em solid;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 `;
 
 const Title = styled.h1`
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 8px;
-  font-size: 40px;
+  font-size: 48px;
   color: whitesmoke;
-  position: relative;
-  width: 400px;
-  text-shadow: 1px 1px;
 `;
 
-const JourneyCard = styled.div`
-  width: 900px;
-  height: 100px;
-  background: rgb(255, 255, 255);
-  border-radius: 0.4em;
-  box-shadow: 0.3em 0.3em 0.7em #00000015;
-  transition: border 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  border: rgb(250, 250, 250) 0.2em solid;
-`;
-
-const Duration = styled.h2`
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  margin: 8px;
-`;
-
-const Restitle = styled.h2`
-  @import url('https://fonts.googleapis.com/css?family=Poppins:400');
-  font-size: 2rem;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 400;
-  line-height: 1.75;
-  margin: 8px;
-  padding: 2px;
+const Section = styled.h2`
+  bottom: 32px;
+  border-radius: 32px;
+  font-size: 28px;
+  font-weight: 600;
 `;
 
 function Journey() {
@@ -80,21 +57,24 @@ function Journey() {
   }, [journeyById, id]);
 
   return (
-    <Container>
-      <div>
-        <Topbar>
-          <Photo alt={journey.title} src={journey.coverImg}></Photo>
-          <Title>{journey.title}</Title>
-        </Topbar>
-        <JourneyCard>
-          <Duration>Numbers of days: {journey.durationInDays}</Duration>
-        </JourneyCard>
+    <FullContainer>
+      <FullContainer>
+        <Header />
+        <Photo src={journey.coverImg}></Photo>
+        <TitleContainer>
+          <Container>
+            <Title>{journey.title}</Title>
+          </Container>
+        </TitleContainer>
+      </FullContainer>
+      <Container>
+        <Section>Numbers of days: {journey.durationInDays}</Section>
         <Schedule days={journey.stages}></Schedule>
-        <Restitle>Restaurant</Restitle>
+        <Section>Restaurant</Section>
         <Restaurant place={journey.restaurants} />
-      </div>
-      <JourneyBar id={id}></JourneyBar>
-    </Container>
+        <JourneyBar id={id}> </JourneyBar>
+      </Container>
+    </FullContainer>
   );
 }
 

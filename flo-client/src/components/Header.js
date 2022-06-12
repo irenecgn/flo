@@ -37,14 +37,16 @@ const Header = ({ onChange }) => {
       <Link to='/'>
         <Image src={logo} alt={logo} />
       </Link>
-      <Search>
-        <PlaneDeparture fontSize={18} color='#737577' />
-        <Input
-          type='search'
-          placeholder='Type here your destination...'
-          onChange={onChange}
-        />
-      </Search>
+      {onChange && (
+        <Search>
+          <PlaneDeparture fontSize={18} color='#737577' />
+          <Input
+            type='search'
+            placeholder='Type here your destination...'
+            onChange={onChange}
+          />
+        </Search>
+      )}
     </BlurredBox>
   );
 };
