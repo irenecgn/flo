@@ -7,11 +7,12 @@ import Schedule from '../components/Schedule';
 import Restaurant from '../components/Restaurants';
 
 import JourneyBar from '../components/JourneyBar';
+import Container from '../components/Container';
 
-const Container = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-`;
+// const Container = styled.div`
+//   display: grid;
+//   grid-template-columns: 1fr 1fr;
+// `;
 
 const Topbar = styled.div`
   height: 180px;
@@ -80,7 +81,6 @@ function Journey() {
 
   return (
     <Container>
-      <JourneyBar id={id}></JourneyBar>
       <div>
         <Topbar>
           <Photo alt={journey.title} src={journey.coverImg}></Photo>
@@ -93,6 +93,7 @@ function Journey() {
         <Restitle>Restaurant</Restitle>
         <Restaurant place={journey.restaurants} />
       </div>
+      <JourneyBar id={id}></JourneyBar>
     </Container>
   );
 }

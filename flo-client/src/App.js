@@ -1,20 +1,8 @@
-import styled from 'styled-components';
 import Router from './Router';
 
-const Main = styled.main`
-  display: grid;
-  justify-content: center;
-  gap: 32px;
-  max-width: 1400px;
-  margin: 64px auto;
-`;
-
+// On this file you want to add shared behaviours or context providers to make them available to the whole app (redux provider, etc..)
 function App() {
-  return (
-    <Main>
-      <Router />
-    </Main>
-  );
+  return <Router />;
 }
 
 export default App;

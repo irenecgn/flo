@@ -1,13 +1,14 @@
 import Map from '../components/Map';
 import Sidebar from '../components/Sidebar';
-import Searchbar from '../components/Searchbar';
+import Header from '../components/Header';
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 import { getAllJourneys } from '../Utilities/Service';
 
-const Journeycontainer = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+const HomeContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  position: relative;
 `;
 
 const Dashboard = () => {
@@ -33,13 +34,11 @@ const Dashboard = () => {
   );
 
   return (
-    <div>
-      <Searchbar onChange={handleChange} />
-      <Journeycontainer>
-        <Sidebar />
-        <Map journeys={filteredJourneys} />
-      </Journeycontainer>
-    </div>
+    <HomeContainer>
+      <Map journeys={filteredJourneys} />
+      <Header onChange={handleChange} />
+      <Sidebar />
+    </HomeContainer>
   );
 };
 

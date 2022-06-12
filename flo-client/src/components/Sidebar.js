@@ -1,17 +1,10 @@
 import styled from 'styled-components';
 import irene from '../images/irenecgn.png';
+import BlurredBox from './BlurredBox';
 
-const Userbar = styled.div`
-  height: 800px;
-  border-radius: 8px;
-  ${
-    '' /* background-image: linear-gradient(to top, #fff1eb 0%, #c2e1ef 100%); */
-  }
-  background-image: linear-gradient(to top, #c2e1ef 0%, #7fabf7 100%);
-  border-radius: 0.4em;
-  box-shadow: 0.3em 0.3em 0.7em #00000015;
-  transition: border 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  border: rgb(250, 250, 250) 0.2em solid;
+const Userbar = styled(BlurredBox)`
+  width: 300px;
+  top: 88px;
 `;
 
 const Info = styled.div`
@@ -81,7 +74,7 @@ const Travel = styled.p`
 const SideBar = () => {
   return (
     <Userbar>
-      <Info>
+      {/* <Info>
         <ProfilePicture src={irene} alt='Profile picture' />
         <Name> Irene </Name>
       </Info>
@@ -103,7 +96,7 @@ const SideBar = () => {
           <Travel>Rio de Janeiro</Travel>
         </Travelscroll>
       </UserTravel>
-      <Addtrip>Add a trip 📍</Addtrip>
+      <Addtrip>Add a trip 📍</Addtrip> */}
     </Userbar>
   );
 };
