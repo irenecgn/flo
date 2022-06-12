@@ -4,7 +4,8 @@
   "description": "The city lovers travel-planner",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server:dev": "nodemon flo-server/index.js",
+    "server:start": "node flo-server/index.js"
   },
   "repository": {
     "type": "git",
