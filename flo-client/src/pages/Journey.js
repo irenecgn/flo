@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import Schedule from '../components/Schedule';
 import Restaurant from '../components/Restaurants';
 
-import JourneyBar from '../components/JourneyBar';
+import AddNotes from '../components/AddNotes';
 import Header from '../components/Header';
 import FullContainer from '../components/FullContainer';
 import Container from '../components/Container';
@@ -72,7 +72,7 @@ function Journey() {
         <Schedule days={journey.stages}></Schedule>
         <Section>Restaurant</Section>
         <Restaurant place={journey.restaurants} />
-        <JourneyBar id={id}> </JourneyBar>
+        <AddNotes journey={journey} setJourney={setJourney}></AddNotes>
       </Container>
     </FullContainer>
   );

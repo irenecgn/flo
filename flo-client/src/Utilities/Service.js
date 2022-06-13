@@ -14,15 +14,14 @@ export const getJourneysById = async (id) => {
   return Promise.reject(res);
 };
 
-//POST JOURNEY/:ID/NOTES
-export const addNewNote = async function (notes) {
-  const res = await fetch(baseURL + `/${notes._id}`, {
+//PUT JOURNEY/:ID
+export const addNewNote = async (journey, note) => {
+  const res = await fetch(baseURL + `/${journey}`, {
     method: 'PUT',
     headers: {
       'Content-type': 'application/json',
     },
-    body: JSON.stringify(notes),
+    body: JSON.stringify({ note }),
   });
-  if (res < 400) return res.json();
-  return Promise.reject(res);
+  return res.json();
 };
