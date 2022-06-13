@@ -23,16 +23,30 @@ export const addNewNote = async (journey, note) => {
     },
     body: JSON.stringify({ note }),
   });
-  return res.json();
+  if (res.status < 400) return res.json();
+  return Promise.reject(res);
 };
 
-//DELETE JOURNEY/DEL/:ID
+//DELETE JOURNEY/DELNOTE/:ID
 export const deleteNoteById = async (journey, id) => {
-  await fetch(baseURL + `/del/${journey}`, {
+  await fetch(baseURL + `/delnote/${journey}`, {
     method: 'PUT',
     headers: {
       'Content-type': 'application/json',
     },
     body: JSON.stringify({ _id: id }),
   });
+};
+
+//PUT JOURNEY/ADDRES/:ID
+export const addNewRestaurant = async (journey, restaurant) => {
+  const res = await fetch(baseURL + `/addres/${journey}`, {
+    method: 'PUT',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify({ restaurant }),
+  });
+  if (res.status < 400) return res.json();
+  return Promise.reject(res);
 };

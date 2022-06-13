@@ -45,8 +45,6 @@ const addNewNote = async function (req, res) {
 
 const deleteNoteById = async function (req, res) {
   try {
-    console.log('HOLA', req.body);
-    console.log('HI', req.params.id);
     const data = await Journey.findByIdAndUpdate(req.params.id, {
       $pull: { notes: { _id: req.body._id } },
     });
@@ -59,9 +57,38 @@ const deleteNoteById = async function (req, res) {
   }
 };
 
+const addNewRestaurant = async function (req, res) {
+  try {
+    const data = req.body.restaurants;
+    const addRestaurant = await Journey.findByIdAndUpdate(
+      req.params.id,
+      {
+        $push: {
+          restaurants: [
+            {
+              name: data,
+              address: data,
+              cuisineTypes: [data],
+              suggestedFor: [data],
+            },
+          ],
+        },
+      },
+      { returnDocument: 'after' }
+    );
+    res.status(201);
+    res.send(addRestaurant);
+  } catch (error) {
+    console.log(error);
+    res.status(500);
+    res.send('Something went wrong');
+  }
+};
+
 module.exports = {
   getAllJourneys,
   getJourneysById,
   addNewNote,
   deleteNoteById,
+  addNewRestaurant,
 };

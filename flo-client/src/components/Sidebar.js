@@ -6,7 +6,8 @@ const Userbar = styled(BlurredBox)`
   display: flex;
   flex-direction: column;
   max-width: 380px;
-  height: 600px;
+  height: auto;
+  gap: 12px;
   top: 88px;
 `;
 
@@ -46,6 +47,13 @@ const Travelscroll = styled.div`
   overflow: scroll;
 `;
 
+const Cities = styled.div`
+  font-size: 28px;
+  font-weight: 400;
+  color: #25292d;
+  padding: 8px;
+`;
+
 const Travel = styled.p`
   margin: 8px;
   align-self: center;
@@ -54,7 +62,7 @@ const Travel = styled.p`
   color: #25292d;
 `;
 
-const SideBar = () => {
+const SideBar = ({ journeys }) => {
   return (
     <Userbar>
       <Info>
@@ -63,13 +71,10 @@ const SideBar = () => {
       </Info>
 
       <UserTravel>
-        <Name>Your Travel:</Name>
+        <Cities>Your Cities:</Cities>
         <Travelscroll>
-          <Travel>San Diego</Travel>
-          <Travel>Los Angeles</Travel>
-          <Travel>Las Vegas</Travel>
-          <Travel>San Francisco</Travel>
-          <Travel>New York</Travel>
+          {journeys &&
+            journeys.map((el) => <Travel key={el}> {el.title}</Travel>)}
         </Travelscroll>
       </UserTravel>
     </Userbar>

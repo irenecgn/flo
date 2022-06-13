@@ -53,7 +53,7 @@ function AddNotes({ journey, setJourney }) {
   return (
     <Userbar>
       <NotesForm onSubmit={handleSubmit}>
-        <TypeNote type='text' name='note'></TypeNote>
+        <TypeNote type='text' name='note' required></TypeNote>
         <AddNoteButton type='submit'>Add note ✏️</AddNoteButton>
       </NotesForm>
       <Notes journey={journey._id} note={note} setNote={setNote}></Notes>
