@@ -25,3 +25,14 @@ export const addNewNote = async (journey, note) => {
   });
   return res.json();
 };
+
+//DELETE JOURNEY/DEL/:ID
+export const deleteNoteById = async (journey, id) => {
+  await fetch(baseURL + `/del/${journey}`, {
+    method: 'PUT',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify({ _id: id }),
+  });
+};

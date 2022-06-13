@@ -1,5 +1,4 @@
 const Journey = require('../models/Journey');
-// const Note = require('../models/Notes');
 
 const getAllJourneys = async function (req, res) {
   try {
@@ -25,19 +24,6 @@ const getJourneysById = async function (req, res) {
   }
 };
 
-// const postNewNote = async function (req, res) {
-//   try {
-//     console.log(req.body);
-//     const noteCreated = await Note.create(req.body);
-//     res.status(201);
-//     res.send(noteCreated);
-//   } catch (error) {
-//     console.log(error);
-//     res.status(500);
-//     res.send('Something went wrong');
-//   }
-// };
-
 const addNewNote = async function (req, res) {
   try {
     const data = req.body.note;
@@ -57,4 +43,25 @@ const addNewNote = async function (req, res) {
   }
 };
 
-module.exports = { getAllJourneys, getJourneysById, addNewNote };
+const deleteNoteById = async function (req, res) {
+  try {
+    console.log('HOLA', req.body);
+    console.log('HI', req.params.id);
+    const data = await Journey.findByIdAndUpdate(req.params.id, {
+      $pull: { notes: { _id: req.body._id } },
+    });
+    res.status(204);
+    res.send(data);
+  } catch (error) {
+    console.log(error);
+    res.status(500);
+    res.send('Something went wrong');
+  }
+};
+
+module.exports = {
+  getAllJourneys,
+  getJourneysById,
+  addNewNote,
+  deleteNoteById,
+};

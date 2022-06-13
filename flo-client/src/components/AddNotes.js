@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import React, { useEffect, useState } from 'react';
 
-import { addNewNote, getJourneysById } from '../Utilities/Service';
+import { addNewNote } from '../Utilities/Service';
 import Notes from './Notes';
 
 const Userbar = styled.div`
@@ -38,8 +38,6 @@ const AddNoteButton = styled.button`
 function AddNotes({ journey, setJourney }) {
   const [note, setNote] = useState([]);
 
-  // const journeyData = await
-
   useEffect(() => {
     setNote(journey.notes);
   }, [journey.notes]);
@@ -47,9 +45,6 @@ function AddNotes({ journey, setJourney }) {
   async function handleSubmit(event) {
     event.preventDefault();
     const noteInput = event.target.note.value;
-    // TODO make sure that the addNewNote return only the new Note added
-    // data must be {note: newInput, _id: dataBa}
-    //const newNote = await addNewNote(journey, noteInput);
     const newNote = await addNewNote(journey._id, noteInput);
     setNote(newNote.notes);
     event.target.reset();
@@ -61,7 +56,7 @@ function AddNotes({ journey, setJourney }) {
         <TypeNote type='text' name='note'></TypeNote>
         <AddNoteButton type='submit'>Add note ✏️</AddNoteButton>
       </NotesForm>
-      <Notes note={note}></Notes>
+      <Notes journey={journey._id} note={note} setNote={setNote}></Notes>
     </Userbar>
   );
 }
