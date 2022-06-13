@@ -15,11 +15,11 @@ export const getJourneysById = async (id) => {
 };
 
 //PUT JOURNEY/:ID
-export const addNewNote = async (journey, note) => {
-  const res = await fetch(baseURL + `/${journey}`, {
-    method: 'PUT',
+export const addNewNote = async (journeyId, note) => {
+  const res = await fetch(baseURL + `/${journeyId}/notes`, {
+    method: 'POST',
     headers: {
-      'Content-type': 'application/json',
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify({ note }),
   });
@@ -28,24 +28,20 @@ export const addNewNote = async (journey, note) => {
 };
 
 //DELETE JOURNEY/DELNOTE/:ID
-export const deleteNoteById = async (journey, id) => {
-  await fetch(baseURL + `/delnote/${journey}`, {
+export const deleteNoteById = async (journeyId, id) => {
+  await fetch(baseURL + `/${journeyId}/notes/${id}`, {
     method: 'PUT',
-    headers: {
-      'Content-type': 'application/json',
-    },
-    body: JSON.stringify({ _id: id }),
   });
 };
 
 //PUT JOURNEY/ADDRES/:ID
 export const addNewRestaurant = async (journey, restaurant) => {
-  const res = await fetch(baseURL + `/addres/${journey}`, {
-    method: 'PUT',
+  const res = await fetch(baseURL + `/${journey}/restaurants`, {
+    method: 'POST',
     headers: {
       'Content-type': 'application/json',
     },
-    body: JSON.stringify({ restaurant }),
+    body: JSON.stringify(restaurant),
   });
   if (res.status < 400) return res.json();
   return Promise.reject(res);

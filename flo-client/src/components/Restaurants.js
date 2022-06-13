@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Plus } from '@mountain-ui/icons';
-import { styles } from 'styled-system';
 
 const Container = styled.div`
   display: flex;

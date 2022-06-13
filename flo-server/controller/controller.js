@@ -27,6 +27,7 @@ const getJourneysById = async function (req, res) {
 const addNewNote = async function (req, res) {
   try {
     const data = req.body.note;
+    console.log(data);
     const addNote = await Journey.findByIdAndUpdate(
       req.params.id,
       {
@@ -45,8 +46,9 @@ const addNewNote = async function (req, res) {
 
 const deleteNoteById = async function (req, res) {
   try {
-    const data = await Journey.findByIdAndUpdate(req.params.id, {
-      $pull: { notes: { _id: req.body._id } },
+    const { journeyId, id } = req.params;
+    const data = await Journey.findByIdAndUpdate(journeyId, {
+      $pull: { notes: { _id: id } },
     });
     res.status(204);
     res.send(data);
@@ -59,19 +61,12 @@ const deleteNoteById = async function (req, res) {
 
 const addNewRestaurant = async function (req, res) {
   try {
-    const data = req.body.restaurants;
+    const restaurant = req.body;
     const addRestaurant = await Journey.findByIdAndUpdate(
       req.params.id,
       {
         $push: {
-          restaurants: [
-            {
-              name: data,
-              address: data,
-              cuisineTypes: [data],
-              suggestedFor: [data],
-            },
-          ],
+          restaurants: [restaurant],
         },
       },
       { returnDocument: 'after' }

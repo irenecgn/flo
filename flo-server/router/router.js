@@ -4,8 +4,8 @@ const controller = require('../controller/controller');
 
 router.get('/journeys', controller.getAllJourneys);
 router.get('/journeys/:id', controller.getJourneysById);
-router.put('/journeys/:id', controller.addNewNote);
-router.put('/journeys/delnote/:id', controller.deleteNoteById);
-router.put('/journeys/addres/:id', controller.addNewRestaurant);
+router.post('/journeys/:id/notes', controller.addNewNote);
+router.put('/journeys/:journeyId/notes/:id', controller.deleteNoteById);
+router.post('/journeys/:id/restaurants', controller.addNewRestaurant);
 
 module.exports = router;
