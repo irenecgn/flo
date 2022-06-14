@@ -39,7 +39,7 @@ const Dashboard = () => {
     <MapContainer>
       <Map journeys={filteredJourneys} />
       <Header onChange={handleChange} />
-      <Sidebar journeys={journeys} />
+      <Sidebar journeys={filteredJourneys} />
       {/* <AddTrip journeys={journeys} setJourneys={setJourneys} /> */}
     </MapContainer>
   );
