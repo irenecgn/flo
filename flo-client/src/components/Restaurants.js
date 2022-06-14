@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Plus } from '@mountain-ui/icons';
+import { addNewRestaurant } from '../Utilities/Service';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 const Container = styled.div`
   display: flex;
@@ -60,33 +63,54 @@ const ResAddress = styled.h2`
   font-size: 16px;
 `;
 
-function Restaurants({ place }) {
+function Restaurants({ journeyId, place }) {
+  const [restaurant, setRestaurant] = useState([]);
+
+  useEffect(() => {
+    setRestaurant(place);
+  }, [place]);
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const restaurantInput = {
+      name: event.target.name.value,
+      address: event.target.address.value,
+      cuisineTypes: event.target.cuisineTypes.value,
+      suggestedFor: event.target.suggestedFor.value,
+    };
+    const newRestaurant = await addNewRestaurant(journeyId, restaurantInput);
+    console.log(newRestaurant.restaurants);
+    setRestaurant(newRestaurant.restaurants);
+    event.target.reset();
+  }
+
   return (
     <>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Label>Name</Label>
-        <Input type='text' required></Input>
+        <Input type='text' name='name' required></Input>
 
         <Label>Address</Label>
-        <Input type='text' required></Input>
+        <Input type='text' name='address' required></Input>
 
         <Label>Cuisine type</Label>
-        <Input type='text' required></Input>
+        <Input type='text' name='cuisineTypes' required></Input>
 
         <Label>Suggested for</Label>
-        <Input type='text'></Input>
-        <Button>
+        <Input type='text' name='suggestedFor'></Input>
+        <Button type='submit'>
           <Plus fontSize={20}></Plus>
         </Button>
       </Form>
       <Container>
-        {place &&
-          place.map((el) => {
+        {restaurant &&
+          restaurant.map((el) => {
             return (
-              <RestaurantCard>
+              <RestaurantCard key={el.index}>
                 <ResName>{el.name}</ResName>
                 <ResAddress>{el.address}</ResAddress>
                 <li>{el.cuisineTypes}</li>
+                <li>{el.suggestedFor}</li>
               </RestaurantCard>
             );
           })}

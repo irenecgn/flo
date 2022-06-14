@@ -50,10 +50,10 @@ const JourneySchema = new mongoose.Schema({
         type: String,
       },
       cuisineTypes: {
-        type: [String],
+        type: String,
       },
       suggestedFor: {
-        type: [String],
+        type: String,
       },
     },
   ],

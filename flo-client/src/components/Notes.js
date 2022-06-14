@@ -15,8 +15,8 @@ function Notes({ journey, note, setNote }) {
       {note &&
         note.map((el) => {
           return (
-            <div>
-              <p key={el}>{el.note}</p>
+            <div key={el._id}>
+              <p>{el.note}</p>
               <button onClick={deleteNote} value={el._id}>
                 X
               </button>

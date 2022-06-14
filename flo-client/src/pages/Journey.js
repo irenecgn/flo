@@ -71,7 +71,7 @@ function Journey() {
         <Section>Numbers of days: {journey.durationInDays}</Section>
         <Schedule days={journey.stages}></Schedule>
         <Section>Restaurant</Section>
-        <Restaurant place={journey.restaurants} />
+        <Restaurant journeyId={journey._id} place={journey.restaurants} />
         <AddNotes journey={journey} setJourney={setJourney}></AddNotes>
       </Container>
     </FullContainer>

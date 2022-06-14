@@ -35,8 +35,8 @@ export const deleteNoteById = async (journeyId, id) => {
 };
 
 //PUT JOURNEY/ADDRES/:ID
-export const addNewRestaurant = async (journey, restaurant) => {
-  const res = await fetch(baseURL + `/${journey}/restaurants`, {
+export const addNewRestaurant = async (journeyId, restaurant) => {
+  const res = await fetch(baseURL + `/${journeyId}/restaurants`, {
     method: 'POST',
     headers: {
       'Content-type': 'application/json',

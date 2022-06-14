@@ -57,26 +57,26 @@
     {
       "name": "Roka Akor",
       "address": "801 Montgomery St",
-      "cuisineTypes": ["Sushi"],
-      "suggestedFor": ["Dinner"]
+      "cuisineTypes": "Sushi",
+      "suggestedFor": "Dinner"
     },
     {
       "name": "Bistro Boudin",
       "address": "160 Jefferson St. San Francisco",
-      "cuisineTypes": ["American", "Sea-food"],
-      "suggestedFor": ["Lunch", "Brunch"]
+      "cuisineTypes": "American",
+      "suggestedFor": "Lunch"
     },
     {
       "name": "Pacific Catch",
       "address": "1646 Restaurants in San Francisco",
-      "cuisineTypes": ["Hawaiian", "Sea-food"],
-      "suggestedFor": ["Lunch", "Brunch"]
+      "cuisineTypes": "Hawaiian",
+      "suggestedFor": "Brunch"
     },
     {
       "name": "Seven Hills",
       "address": "646 Restaurants in San Francisco",
-      "cuisineTypes": ["Italian", "Sea-food"],
-      "suggestedFor": ["Lunch"]
+      "cuisineTypes": "Sea-food",
+      "suggestedFor": "Lunch"
     }
   ],
   "notes": [
