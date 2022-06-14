@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Plus } from '@mountain-ui/icons';
-import { addNewRestaurant } from '../Utilities/Service';
+import { addNewRestaurant, deleteRestaurantById } from '../Utilities/Service';
 import { useEffect } from 'react';
 import { useState } from 'react';
 
@@ -84,6 +84,14 @@ function Restaurants({ journeyId, place }) {
     event.target.reset();
   }
 
+  async function deleteRestaurant(event) {
+    const delEvent = event.target.value;
+    await deleteRestaurantById(journeyId, delEvent);
+    return setRestaurant((prevState) => {
+      return prevState.filter((el) => el._id !== delEvent);
+    });
+  }
+
   return (
     <>
       <Form onSubmit={handleSubmit}>
@@ -106,11 +114,12 @@ function Restaurants({ journeyId, place }) {
         {restaurant &&
           restaurant.map((el) => {
             return (
-              <RestaurantCard key={el.index}>
+              <RestaurantCard key={el._id}>
                 <ResName>{el.name}</ResName>
                 <ResAddress>{el.address}</ResAddress>
                 <li>{el.cuisineTypes}</li>
                 <li>{el.suggestedFor}</li>
+                <button onClick={deleteRestaurant} value={el._id}></button>
               </RestaurantCard>
             );
           })}

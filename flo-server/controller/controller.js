@@ -80,10 +80,28 @@ const addNewRestaurant = async function (req, res) {
   }
 };
 
+const deleteRestaurantById = async function (req, res) {
+  try {
+    const { journeyId, id } = req.params;
+
+    console.log(id);
+    const data = await Journey.findByIdAndUpdate(journeyId, {
+      $pull: { restaurants: { _id: id } },
+    });
+    res.status(204);
+    res.send(data);
+  } catch (error) {
+    console.log(error);
+    res.status(500);
+    res.send('Something went wrong');
+  }
+};
+
 module.exports = {
   getAllJourneys,
   getJourneysById,
   addNewNote,
   deleteNoteById,
   addNewRestaurant,
+  deleteRestaurantById,
 };

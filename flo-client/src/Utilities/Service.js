@@ -14,7 +14,7 @@ export const getJourneysById = async (id) => {
   return Promise.reject(res);
 };
 
-//PUT JOURNEY/:ID
+//PUT /journeys/:id/notes
 export const addNewNote = async (journeyId, note) => {
   const res = await fetch(baseURL + `/${journeyId}/notes`, {
     method: 'POST',
@@ -27,14 +27,14 @@ export const addNewNote = async (journeyId, note) => {
   return Promise.reject(res);
 };
 
-//DELETE JOURNEY/DELNOTE/:ID
+// DELETE journeys/:journeyId/notes/:id
 export const deleteNoteById = async (journeyId, id) => {
   await fetch(baseURL + `/${journeyId}/notes/${id}`, {
     method: 'PUT',
   });
 };
 
-//PUT JOURNEY/ADDRES/:ID
+// PUT journeys/:journeyId/restaurants/:id
 export const addNewRestaurant = async (journeyId, restaurant) => {
   const res = await fetch(baseURL + `/${journeyId}/restaurants`, {
     method: 'POST',
@@ -45,4 +45,11 @@ export const addNewRestaurant = async (journeyId, restaurant) => {
   });
   if (res.status < 400) return res.json();
   return Promise.reject(res);
+};
+
+//DELETE journeys/:journeyId/restaurants/:id
+export const deleteRestaurantById = async (journeyId, id) => {
+  await fetch(baseURL + `/${journeyId}/restaurants/${id}`, {
+    method: 'PUT',
+  });
 };
