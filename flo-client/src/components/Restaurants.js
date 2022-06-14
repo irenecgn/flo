@@ -114,11 +114,10 @@ function Restaurants({ journeyId, place }) {
     event.target.reset();
   }
 
-  async function deleteRestaurant(event) {
-    const delEvent = event.target.value;
-    await deleteRestaurantById(journeyId, delEvent);
+  async function deleteRestaurant(id) {
+    await deleteRestaurantById(journeyId, id);
     return setRestaurant((prevState) => {
-      return prevState.filter((el) => el._id !== delEvent);
+      return prevState.filter((el) => el._id !== id);
     });
   }
 
@@ -158,8 +157,7 @@ function Restaurants({ journeyId, place }) {
                 <Infos>{el.address}</Infos>
                 <Infos>{el.cuisineTypes}</Infos>
                 <Infos>{el.suggestedFor}</Infos>
-                <ButtonDelete onClick={deleteRestaurant} value={el._id}>
-                  {' '}
+                <ButtonDelete onClick={() => deleteRestaurant(el._id)}>
                   DELETE
                 </ButtonDelete>
               </RestaurantCard>
