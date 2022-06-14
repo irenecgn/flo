@@ -4,43 +4,60 @@ import React, { useEffect, useState } from 'react';
 import { addNewNote } from '../Utilities/Service';
 import Notes from './Notes';
 
-const Userbar = styled.div`
-  height: 800px;
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  text-align: center;
   border-radius: 8px;
-  background-image: linear-gradient(to top, #c2e1ef 0%, #e3f5fd 100%);
-
-  border: rgb(250, 250, 250) 0.2em solid;
+  gap: 8px;
+  padding: 16px;
+  height: 300px;
+  min-height: 300px;
 `;
 
-const NotesForm = styled.form``;
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  border: rgb(250, 250, 250) 2px solid;
+  background: rgb(255, 255, 255);
+  border-radius: 8px;
+  padding: 16px;
+  width: 230px;
+  height: min-content;
+  padding: 16px;
+  box-shadow: 0.3em 0.3em 0.7em #00000015;
+`;
 
 const TypeNote = styled.input`
-  background-color: rgba(250, 250, 250, 0.5);
-
-  width: 700px;
-  margin: 24px;
-  color: #090909;
-  padding: 8px;
-  font-size: 18px;
-  border-radius: 0.5em;
+  height: 30px;
   border: none;
+  border-radius: 8px;
+  padding: 8px;
+  margin: 4px;
+  box-shadow: 0.3em 0.3em 0.7em #00000015;
+  gap: 8px;
+  background-color: rgba(250, 250, 250, 0.9);
 `;
 
 const AddNoteButton = styled.button`
-  border-radius: 8px;
+  width: 180px;
+  border-radius: 4px;
   border: none;
-  background-color: rgba(250, 250, 250, 0.5);
-  font-size: 22px;
+  box-shadow: 0.3em 0.3em 0.7em #00000015;
+  background-color: rgba(250, 250, 250, 0.9);
+  font-size: 12px;
   font-weight: 600;
   padding: 8px;
+  margin: 12px;
 `;
 
-function AddNotes({ journey, setJourney }) {
+function AddNotes({ journey, notes, setJourney }) {
   const [note, setNote] = useState([]);
 
   useEffect(() => {
-    setNote(journey.notes);
-  }, [journey.notes]);
+    setNote(notes);
+  }, [notes]);
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -51,13 +68,13 @@ function AddNotes({ journey, setJourney }) {
   }
 
   return (
-    <Userbar>
-      <NotesForm onSubmit={handleSubmit}>
+    <Container>
+      <Form onSubmit={handleSubmit}>
         <TypeNote type='text' name='note' required></TypeNote>
-        <AddNoteButton type='submit'>Add note ✏️</AddNoteButton>
-      </NotesForm>
+        <AddNoteButton type='submit'>Add note</AddNoteButton>
+      </Form>
       <Notes journey={journey._id} note={note} setNote={setNote}></Notes>
-    </Userbar>
+    </Container>
   );
 }
 

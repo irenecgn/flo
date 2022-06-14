@@ -27,7 +27,6 @@ const getJourneysById = async function (req, res) {
 const addNewNote = async function (req, res) {
   try {
     const data = req.body.note;
-    console.log(data);
     const addNote = await Journey.findByIdAndUpdate(
       req.params.id,
       {
@@ -47,6 +46,7 @@ const addNewNote = async function (req, res) {
 const deleteNoteById = async function (req, res) {
   try {
     const { journeyId, id } = req.params;
+    console.log(req.params);
     const data = await Journey.findByIdAndUpdate(journeyId, {
       $pull: { notes: { _id: id } },
     });
@@ -83,8 +83,6 @@ const addNewRestaurant = async function (req, res) {
 const deleteRestaurantById = async function (req, res) {
   try {
     const { journeyId, id } = req.params;
-
-    console.log(id);
     const data = await Journey.findByIdAndUpdate(journeyId, {
       $pull: { restaurants: { _id: id } },
     });
