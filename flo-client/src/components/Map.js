@@ -28,7 +28,7 @@ const Map = ({ journeys }) => {
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={mapContainer}
-        zoom={3}
+        zoom={4}
         options={mapOptions}
       >
         {journeys &&

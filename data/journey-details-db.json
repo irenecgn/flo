@@ -1,49 +1,49 @@
 {
-  "coverImg": "https://images.unsplash.com/photo-1565879912201-86999a88cb70?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
-  "title": "San Francisco",
-  "durationInDays": 2,
+  "coverImg": "https://images.unsplash.com/photo-1522083165195-3424ed129620?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1994&q=80",
+  "title": "New York",
+  "durationInDays": 4,
   "accomodation": "Hilton San Francisco Union Square",
   "coordinates": {
-    "lat": 37.774929,
-    "lng": -122.419418
+    "lat": 40.712784,
+    "lng": -74.005941
   },
   "stages": [
     {
-      "title": "day 1",
-      "description": "Golden Gate Bridge - Alcatraz",
+      "title": "Day 1",
+      "description": "Manhattan",
       "todos": [
         {
-          "name": "Golden gate bridge",
+          "name": "Empire State Buildin",
           "completed": false
         },
         {
-          "name": "Round-trip boat to/from Alcatraz island",
+          "name": "Times Square",
           "completed": false
         },
         {
-          "name": "Fisherman's Wharf",
+          "name": "Chrysler Building",
           "completed": false
         }
       ]
     },
     {
-      "title": "day 2",
-      "description": "Chinatown - Union Square",
+      "title": "Day 2",
+      "description": "Manhattan",
       "todos": [
-        {
-          "name": "Coit Tower ",
-          "completed": false
-        },
         {
           "name": "China Town",
           "completed": false
         },
         {
-          "name": "Union Square",
+          "name": "Little Italy",
           "completed": false
         },
         {
-          "name": "Asian Art Museum",
+          "name": "Brooklyng Bridge",
+          "completed": false
+        },
+        {
+          "name": "Tenement Museum",
           "completed": false
         },
         {
@@ -51,37 +51,44 @@
           "completed": false
         }
       ]
+    },
+    {
+      "title": "Day 3",
+      "description": "Brookling",
+      "todos": [
+        {
+          "name": "Brookling Bridge Park",
+          "completed": false
+        },
+        {
+          "name": "Brookling Museum",
+          "completed": false
+        },
+        {
+          "name": "Coney Island",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "title": "Day 4",
+      "description": "Financial District",
+      "todos": [
+        {
+          "name": "Times Square",
+          "completed": false
+        },
+        {
+          "name": "Liberty Island",
+          "completed": false
+        }
+      ]
     }
   ],
-  "restaurants": [
-    {
-      "name": "Roka Akor",
-      "address": "801 Montgomery St",
-      "cuisineTypes": "Sushi",
-      "suggestedFor": "Dinner"
-    },
-    {
-      "name": "Bistro Boudin",
-      "address": "160 Jefferson St. San Francisco",
-      "cuisineTypes": "American",
-      "suggestedFor": "Lunch"
-    },
-    {
-      "name": "Pacific Catch",
-      "address": "1646 Restaurants in San Francisco",
-      "cuisineTypes": "Hawaiian",
-      "suggestedFor": "Brunch"
-    },
-    {
-      "name": "Seven Hills",
-      "address": "646 Restaurants in San Francisco",
-      "cuisineTypes": "Sea-food",
-      "suggestedFor": "Lunch"
-    }
-  ],
+  "restaurants": [],
   "notes": [
     {
-      "note": "Buy the tickets"
+      "note": []
     }
   ]
 }

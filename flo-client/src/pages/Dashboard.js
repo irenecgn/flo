@@ -18,8 +18,8 @@ const Dashboard = () => {
   async function getJourneys() {
     const data = await getAllJourneys();
     console.log(data);
-    const arr = data.sort((a, b) => a.title - b.title);
-    setJourneys(arr);
+    //const arr = data.sort((a, b) => a.title.localCompare(b.title));
+    setJourneys(data);
   }
 
   useEffect(() => {

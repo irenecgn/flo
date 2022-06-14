@@ -39,6 +39,7 @@ const ProfilePicture = styled.img`
 
 const UserTravel = styled.div`
   width: 360px;
+  height: 600px;
   background-color: rgba(250, 250, 250, 0.6);
   border-radius: 8px;
   border: rgb(250, 250, 250) 2px solid;
@@ -48,7 +49,7 @@ const UserTravel = styled.div`
 const Travelscroll = styled.div`
   border: none;
   border-radius: 8px;
-  overflow-x: scroll;
+  overflow-y: scroll;
 `;
 
 const Cities = styled.div`
