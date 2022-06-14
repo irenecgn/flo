@@ -6,38 +6,52 @@ import Notes from './Notes';
 
 const Container = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: start;
-  text-align: center;
-  border-radius: 8px;
-  gap: 8px;
-  padding: 16px;
-  height: 300px;
-  min-height: 300px;
+  justify-content: flex-start;
+  border: rgb(250, 250, 250) 0.2em solid;
+  box-shadow: 0.3em 0.3em 0.7em #00000015;
+`;
+
+const ContainerNotes = styled.div`
+  max-width: 100%;
+  display: center;
+`;
+
+const TitleContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const SectionNotes = styled.h2`
+  display: flex;
+  align-self: flex-start;
+  bottom: 32px;
+  border-radius: 32px;
+  font-size: 24px;
+  color: #25292d;
 `;
 
 const Form = styled.form`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  width: 800px;
+  height: 60px;
   border: rgb(250, 250, 250) 2px solid;
   background: rgb(255, 255, 255);
   border-radius: 8px;
-  padding: 16px;
-  width: 230px;
-  height: min-content;
-  padding: 16px;
+  padding: 4px;
+  margin: 12px;
   box-shadow: 0.3em 0.3em 0.7em #00000015;
 `;
 
 const TypeNote = styled.input`
+  background-color: rgba(250, 250, 250, 0.9);
   height: 30px;
+  width: 600px;
   border: none;
   border-radius: 8px;
   padding: 8px;
   margin: 4px;
-  box-shadow: 0.3em 0.3em 0.7em #00000015;
-  gap: 8px;
-  background-color: rgba(250, 250, 250, 0.9);
+  margin-top: 8px;
 `;
 
 const AddNoteButton = styled.button`
@@ -48,8 +62,8 @@ const AddNoteButton = styled.button`
   background-color: rgba(250, 250, 250, 0.9);
   font-size: 12px;
   font-weight: 600;
-  padding: 8px;
-  margin: 12px;
+  margin: 4px;
+  margin-right: 18px;
 `;
 
 function AddNotes({ journey, notes, setJourney }) {
@@ -68,13 +82,25 @@ function AddNotes({ journey, notes, setJourney }) {
   }
 
   return (
-    <Container>
-      <Form onSubmit={handleSubmit}>
-        <TypeNote type='text' name='note' required></TypeNote>
-        <AddNoteButton type='submit'>Add note</AddNoteButton>
-      </Form>
-      <Notes journey={journey._id} note={note} setNote={setNote}></Notes>
-    </Container>
+    <>
+      <TitleContainer>
+        <SectionNotes>Notes</SectionNotes>
+        <Form onSubmit={handleSubmit}>
+          <TypeNote
+            type='text'
+            name='note'
+            placeholder='Type note...'
+            required
+          ></TypeNote>
+          <AddNoteButton type='submit'>ADD NOTE</AddNoteButton>
+        </Form>
+      </TitleContainer>
+      <Container>
+        <ContainerNotes>
+          <Notes journey={journey._id} note={note} setNote={setNote}></Notes>
+        </ContainerNotes>
+      </Container>
+    </>
   );
 }
 

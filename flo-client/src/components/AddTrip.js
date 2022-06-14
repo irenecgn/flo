@@ -3,7 +3,6 @@ import { Plus } from '@mountain-ui/icons';
 import React from 'react';
 import BlurredBox from './BlurredBox';
 import { useState } from 'react';
-import ModalForm from './ModalForm';
 
 const StyledAddTrip = styled(BlurredBox)`
   display: flex;
@@ -30,18 +29,6 @@ const IconContainer = styled.div`
   width: 48px;
 `;
 
-const Modal = styled.div`
-  position: absolute;
-  top: 400px;
-  left: 850px;
-  height: 500px;
-  max-width: 500px;
-  width: 500px;
-  background-color: rgba(250, 250, 250, 0.6);
-  border-radius: 48px;
-  padding: 20px;
-`;
-
 function AddTrip({ journeys, setJourneys }) {
   const [modal, setModal] = useState(false);
 
@@ -57,12 +44,6 @@ function AddTrip({ journeys, setJourneys }) {
           <Plus fontSize={32} />
         </IconContainer>
       </StyledAddTrip>
-
-      {modal && (
-        <Modal>
-          <ModalForm />
-        </Modal>
-      )}
     </>
   );
 }

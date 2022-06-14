@@ -32,11 +32,22 @@ const Title = styled.h1`
   color: whitesmoke;
 `;
 
+const ContainerPage = styled(Container)`
+  width: 900px;
+  padding: 12px;
+`;
+
+const RestaurantContainer = styled.div`
+  border: rgb(250, 250, 250) 0.2em solid;
+  box-shadow: 0.3em 0.3em 0.7em #00000015;
+  border-radius: 8px;
+`;
+
 const Section = styled.h2`
   bottom: 32px;
   border-radius: 32px;
-  font-size: 28px;
-  font-weight: 600;
+  font-size: 24px;
+  color: #25292d;
 `;
 
 function Journey() {
@@ -67,18 +78,20 @@ function Journey() {
           </Container>
         </TitleContainer>
       </FullContainer>
-      <Container>
+      <ContainerPage>
         <Section>Numbers of days: {journey.durationInDays}</Section>
         <Schedule days={journey.stages}></Schedule>
         <Section>Restaurants</Section>
-        <Restaurant journeyId={journey._id} place={journey.restaurants} />
-        <Section>Notes</Section>
+        <RestaurantContainer>
+          <Restaurant journeyId={journey._id} place={journey.restaurants} />
+        </RestaurantContainer>
+
         <AddNotes
           journey={journey}
           notes={journey.notes}
           setJourney={setJourney}
         ></AddNotes>
-      </Container>
+      </ContainerPage>
     </FullContainer>
   );
 }

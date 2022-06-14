@@ -62,6 +62,7 @@ const ContainerCard = styled(Container)`
   max-height: 200px;
   width: 800px;
   max-width: 800px;
+  display: center;
 `;
 
 const RestaurantCard = styled.div`
@@ -72,7 +73,7 @@ const RestaurantCard = styled.div`
   text-align: center;
   width: 240px;
   max-width: 200px;
-  height: auto;
+  height: 180px;
   ${'' /* background-color: rgba(250, 250, 250, 1.8); */}
   border-radius: 8px;
   border: rgb(250, 250, 250) 0.2em solid;
@@ -123,6 +124,22 @@ function Restaurants({ journeyId, place }) {
 
   return (
     <Container>
+      <ContainerCard>
+        {restaurant &&
+          restaurant.map((el) => {
+            return (
+              <RestaurantCard key={el._id}>
+                <ResName>{el.name}</ResName>
+                <Infos>{el.address}</Infos>
+                <Infos>{el.cuisineTypes}</Infos>
+                <Infos>{el.suggestedFor}</Infos>
+                <ButtonDelete onClick={() => deleteRestaurant(el._id)}>
+                  DELETE
+                </ButtonDelete>
+              </RestaurantCard>
+            );
+          })}
+      </ContainerCard>
       <Form onSubmit={handleSubmit}>
         <Input type='text' name='name' placeholder='Name' required></Input>
 
@@ -147,23 +164,6 @@ function Restaurants({ journeyId, place }) {
         ></Input>
         <Button type='submit'>CREATE</Button>
       </Form>
-
-      <ContainerCard>
-        {restaurant &&
-          restaurant.map((el) => {
-            return (
-              <RestaurantCard key={el._id}>
-                <ResName>{el.name}</ResName>
-                <Infos>{el.address}</Infos>
-                <Infos>{el.cuisineTypes}</Infos>
-                <Infos>{el.suggestedFor}</Infos>
-                <ButtonDelete onClick={() => deleteRestaurant(el._id)}>
-                  DELETE
-                </ButtonDelete>
-              </RestaurantCard>
-            );
-          })}
-      </ContainerCard>
     </Container>
   );
 }

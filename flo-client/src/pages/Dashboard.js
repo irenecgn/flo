@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 import { getAllJourneys } from '../Utilities/Service';
 import FullContainer from '../components/FullContainer';
-import AddTrip from '../components/AddTrip';
+// import AddTrip from '../components/AddTrip';
 
 const MapContainer = styled(FullContainer)`
   height: 100%;
@@ -17,7 +17,9 @@ const Dashboard = () => {
 
   async function getJourneys() {
     const data = await getAllJourneys();
-    setJourneys(data);
+    console.log(data);
+    const arr = data.sort((a, b) => a.title - b.title);
+    setJourneys(arr);
   }
 
   useEffect(() => {
@@ -38,7 +40,7 @@ const Dashboard = () => {
       <Map journeys={filteredJourneys} />
       <Header onChange={handleChange} />
       <Sidebar journeys={journeys} />
-      <AddTrip journeys={journeys} setJourneys={setJourneys} />
+      {/* <AddTrip journeys={journeys} setJourneys={setJourneys} /> */}
     </MapContainer>
   );
 };

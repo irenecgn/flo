@@ -2,7 +2,10 @@ const Journey = require('../models/Journey');
 
 const getAllJourneys = async function (req, res) {
   try {
-    const journeys = await Journey.find({}, '_id coordinates title');
+    const journeys = await Journey.find(
+      {},
+      '_id coordinates title coverImg durationInDays'
+    );
     res.status(200);
     res.send(journeys);
   } catch (error) {

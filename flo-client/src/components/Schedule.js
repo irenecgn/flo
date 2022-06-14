@@ -3,16 +3,16 @@ import Day from './Day';
 import { useState } from 'react';
 
 const Daycard = styled.li`
-  background: rgb(255, 255, 255);
-  border-radius: 0.4em;
-  box-shadow: 0.3em 0.3em 0.7em #00000015;
-  border: rgb(250, 250, 250) 0.2em solid;
+  border-radius: 8px;
   list-style-type: none;
 `;
 
+const SingleDayCard = styled.div``;
 const Scheduletitle = styled.h1`
-  margin: 8px;
-  padding: 2px;
+  bottom: 32px;
+  border-radius: 32px;
+  font-size: 28px;
+  font-weight: 600;
 `;
 
 function Stages({ days }) {
@@ -24,13 +24,13 @@ function Stages({ days }) {
 
   return (
     <Daycard>
-      <Scheduletitle onClick={handleToggle}>Schedule</Scheduletitle>
-      <div>
+      <Scheduletitle onClick={handleToggle}></Scheduletitle>
+      <SingleDayCard>
         {days &&
           days.map((el) => {
             return <Day key={el.title} daysDescription={el}></Day>;
           })}
-      </div>
+      </SingleDayCard>
     </Daycard>
   );
 }

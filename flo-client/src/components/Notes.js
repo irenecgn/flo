@@ -3,15 +3,23 @@ import styled from 'styled-components';
 import { deleteNoteById } from '../Utilities/Service';
 import { Trash } from '@mountain-ui/icons';
 
-const Container = styled.div`
-  display: grid;
-  grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr;
+const ContainerCard = styled.div`
+  width: 800px;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  text-align: center;
   gap: 8px;
+  padding: 16px;
+  list-style: none;
 `;
 
 const NotesCard = styled.div`
+  display: flex;
+  justify-content: space-between;
   border-radius: 4px;
   border: rgb(250, 250, 250) 2px solid;
+  background-color: rgb(250, 250, 206);
   width: 240px;
   max-width: 200px;
   height: 170px;
@@ -23,14 +31,16 @@ const NotesCard = styled.div`
 `;
 
 const NoteText = styled.p`
-  margin: 4px;
+  margin: 12px;
+  margin-top: 36px;
 `;
 
 const ButtonDelete = styled.button`
   border: none;
   box-shadow: 0.3em 0.3em 0.7em #00000015;
   margin: 4px;
-  border-radius: 40px;
+  border-radius: 50%;
+  height: 24px;
   background-color: rgba(250, 250, 250, 0.9);
 `;
 
@@ -43,7 +53,7 @@ function Notes({ journey, note, setNote }) {
   }
 
   return (
-    <Container>
+    <ContainerCard>
       {note &&
         note.map((el) => {
           return (
@@ -55,7 +65,7 @@ function Notes({ journey, note, setNote }) {
             </NotesCard>
           );
         })}
-    </Container>
+    </ContainerCard>
   );
 }
 
