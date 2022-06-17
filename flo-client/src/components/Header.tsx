@@ -31,7 +31,7 @@ const Image = styled.img`
   border-radius: 4px;
 `;
 
-const Header = ({ onChange }) => {
+const Header: React.FC = ({ onChange }) => {
   return (
     <BlurredBox as='header'>
       <Link to='/'>

@@ -94,7 +94,7 @@ const Infos = styled.p`
   padding: 2px;
 `;
 
-function Restaurants({ journeyId, place }) {
+const Restaurants: React.FC = ({ journeyId, place }) => {
   const [restaurant, setRestaurant] = useState([]);
 
   useEffect(() => {

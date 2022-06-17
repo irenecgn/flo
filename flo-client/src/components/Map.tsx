@@ -14,7 +14,7 @@ const containerStyle = {
 
 const API_KEY = process.env.REACT_APP_GMAPS_API_KEY;
 
-const Map = ({ journeys }) => {
+const Map: React.FC = ({ journeys }) => {
   const mapOptions = {
     mapTypeControl: false,
     scaleControl: false,

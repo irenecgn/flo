@@ -44,7 +44,7 @@ const ButtonDelete = styled.button`
   background-color: rgba(250, 250, 250, 0.9);
 `;
 
-function Notes({ journey, note, setNote }) {
+const Notes: React.FC = ({ journey, note, setNote }) => {
   async function deleteNote(id) {
     await deleteNoteById(journey, id);
     return setNote((prevState) => {

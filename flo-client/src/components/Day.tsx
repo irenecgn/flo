@@ -38,7 +38,7 @@ const Label = styled.label`
   color: #25292d;
 `;
 
-function Day({ daysDescription }) {
+const Day: React.FC = ({ daysDescription }) => {
   return (
     <Detail>
       <Title key={daysDescription.title}>

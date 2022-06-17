@@ -15,7 +15,7 @@ const Scheduletitle = styled.h1`
   font-weight: 600;
 `;
 
-function Stages({ days }) {
+const Stages: React.FC = ({ days }) => {
   const [isOpen, setOpen] = useState(false);
 
   const handleToggle = () => {

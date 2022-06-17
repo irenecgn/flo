@@ -15,7 +15,7 @@ const Input = styled.input`
   font-weight: 500;
 `;
 
-function ModalForm() {
+const ModalForm: React.FC = () => {
   return (
     <Form>
       <label>Cover image </label>

@@ -56,7 +56,7 @@ const CalendarContainer = styled.div`
   color: #737577;
 `;
 
-const SideBar = ({ journeys }) => {
+const SideBar: React.FC = ({ journeys }) => {
   return (
     <Travelscroll>
       {journeys &&
