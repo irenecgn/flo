@@ -50,7 +50,7 @@ const Section = styled.h2`
   color: #25292d;
 `;
 
-function Journey() {
+const Journey: React.FC = () => {
   let { id } = useParams();
 
   const [journey, setJourney] = useState([]);

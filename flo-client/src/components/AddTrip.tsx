@@ -29,7 +29,7 @@ const IconContainer = styled.div`
   width: 48px;
 `;
 
-function AddTrip({ journeys, setJourneys }) {
+const AddTrip: React.FC = ({ journeys, setJourneys }) => {
   const [modal, setModal] = useState(false);
 
   const toggleModal = () => {

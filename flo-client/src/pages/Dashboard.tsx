@@ -11,7 +11,7 @@ const MapContainer = styled(FullContainer)`
   height: 100%;
 `;
 
-const Dashboard: Function = () => {
+const Dashboard: React.FC = () => {
   const [journeys, setJourneys] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
 

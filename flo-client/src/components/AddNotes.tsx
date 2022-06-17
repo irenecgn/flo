@@ -66,7 +66,7 @@ const AddNoteButton = styled.button`
   margin-right: 18px;
 `;
 
-function AddNotes({ journey, notes, setJourney }) {
+const AddNotes: React.FC = ({ journey, notes, setJourney }) => {
   const [note, setNote] = useState([]);
 
   useEffect(() => {
