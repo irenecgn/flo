@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { deleteNoteById } from '../Utilities/Service';
 import { Trash } from '@mountain-ui/icons';
+import { Note } from './AddNotes'
 
 const ContainerCard = styled.div`
   width: 800px;
@@ -43,11 +44,19 @@ const ButtonDelete = styled.button`
   height: 24px;
   background-color: rgba(250, 250, 250, 0.9);
 `;
-
-const Notes: React.FC = ({ journey, note, setNote }) => {
-  async function deleteNote(id) {
+// interface Note{
+//   _id: string;
+//   id : string; note : string;
+// }
+interface NoteProps{
+  journey :string;
+  note :Note[];
+  setNote :(notes : any)=> Note[];
+}
+function Notes({ journey, note, setNote }: NoteProps) {
+  async function deleteNote(id: string) {
     await deleteNoteById(journey, id);
-    return setNote((prevState) => {
+    return setNote((prevState: Note[]) => {
       return prevState.filter((el) => el._id !== id);
     });
   }

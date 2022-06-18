@@ -65,8 +65,8 @@ const AddNoteButton = styled.button`
   margin: 4px;
   margin-right: 18px;
 `;
-interface Note{
-  id : string; note : string;
+export interface Note{
+  id : string; note : string; _id: string;
 }
 type callBackFunction = () => void;
 interface Props {
@@ -75,28 +75,37 @@ interface Props {
   setJourney: callBackFunction;
 }
 const AddNotes: React.FC<Props> = ({ journey, notes, setJourney }) => {
-  const [note, setNote] = useState([]);
+  const [note, setNote] = useState<Note[]>([]);
 
   useEffect(() => {
     setNote(notes);
   }, [notes]);
 
-  async function handleSubmit(event : {target :{ note :{value : string},
-                                        reset: callBackFunction}, 
-                                      preventDefault: callBackFunction ,
-                                      }) {
+  interface eventReact {
+    preventDefault :callBackFunction;
+    target: {note : {value: string},
+    reset: callBackFunction
+    }
+  }
+  //should we hack this?
+  //suggestion to assign noteInput to a prop
+  async function handleSubmit (     event : eventReact) {
     event.preventDefault();
     const noteInput = event.target.note.value;
     const newNote = await addNewNote(journey._id, noteInput);
     setNote(newNote.notes);
     event.target.reset();
   }
+  function myFunction(event :React.FormEvent<HTMLFormElement>) {//console.log("myFunction "+ele)
+       handleSubmit(event as unknown as eventReact);
+  }
+ 
 
   return (
     <>
       <TitleContainer>
         <SectionNotes>Notes</SectionNotes>
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={(ele ) =>myFunction(ele)}>
           <TypeNote
             type='text'
             name='note'
@@ -108,7 +117,7 @@ const AddNotes: React.FC<Props> = ({ journey, notes, setJourney }) => {
       </TitleContainer>
       <Container>
         <ContainerNotes>
-          <Notes journey={journey._id} note={note} setNote={setNote}></Notes>
+          <Notes journey = {journey._id } note={note} setNote  ={setNote}></Notes>
         </ContainerNotes>
       </Container>
     </>
