@@ -1,9 +1,9 @@
-import styled from 'styled-components';
+import styled from 'styled-components'; 
 import React, { useEffect, useState } from 'react';
 
 import { addNewNote } from '../Utilities/Service';
 import Notes from './Notes';
-
+ 
 const Container = styled.div`
   display: flex;
   justify-content: flex-start;
@@ -65,15 +65,26 @@ const AddNoteButton = styled.button`
   margin: 4px;
   margin-right: 18px;
 `;
-
-const AddNotes: React.FC = ({ journey, notes, setJourney }) => {
+interface Note{
+  id : string; note : string;
+}
+type callBackFunction = () => void;
+interface Props {
+  journey: {_id: string};
+  notes: Note[];
+  setJourney: callBackFunction;
+}
+const AddNotes: React.FC<Props> = ({ journey, notes, setJourney }) => {
   const [note, setNote] = useState([]);
 
   useEffect(() => {
     setNote(notes);
   }, [notes]);
 
-  async function handleSubmit(event) {
+  async function handleSubmit(event : {target :{ note :{value : string},
+                                        reset: callBackFunction}, 
+                                      preventDefault: callBackFunction ,
+                                      }) {
     event.preventDefault();
     const noteInput = event.target.note.value;
     const newNote = await addNewNote(journey._id, noteInput);
