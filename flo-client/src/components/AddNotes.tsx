@@ -75,7 +75,7 @@ interface Props {
   setJourney: callBackFunction;
 }
 const AddNotes: React.FC<Props> = ({ journey, notes, setJourney }) => {
-  const [note, setNote] = useState<Note[]>([]);
+  const [note, setNote] = useState<Note[]>([] ); // 
 
   useEffect(() => {
     setNote(notes);
@@ -117,7 +117,7 @@ const AddNotes: React.FC<Props> = ({ journey, notes, setJourney }) => {
       </TitleContainer>
       <Container>
         <ContainerNotes>
-          <Notes journey = {journey._id } note={note} setNote  ={setNote}></Notes>
+          <Notes journey = {journey._id } note={note} setNote ={setNote}></Notes>
         </ContainerNotes>
       </Container>
     </>

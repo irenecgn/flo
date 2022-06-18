@@ -48,15 +48,20 @@ const ButtonDelete = styled.button`
 //   _id: string;
 //   id : string; note : string;
 // }
+interface Notefunction{
+  nFunction : (notes : Note[])=> Note[]
+}
+
 interface NoteProps{
   journey :string;
   note :Note[];
-  setNote :(notes : any)=> Note[];
+  setNote : React.Dispatch<React.SetStateAction<Note[]>>
+  ;
 }
 function Notes({ journey, note, setNote }: NoteProps) {
   async function deleteNote(id: string) {
     await deleteNoteById(journey, id);
-    return setNote((prevState: Note[]) => {
+    return setNote (( prevState  ) => {
       return prevState.filter((el) => el._id !== id);
     });
   }
