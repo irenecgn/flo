@@ -3,6 +3,7 @@ import { Plus } from '@mountain-ui/icons';
 import React from 'react';
 import BlurredBox from './BlurredBox';
 import { useState } from 'react';
+import { Note } from './AddNotes'
 
 const StyledAddTrip = styled(BlurredBox)`
   display: flex;
@@ -28,8 +29,13 @@ const IconContainer = styled.div`
   height: 48px;
   width: 48px;
 `;
-
-const AddTrip: React.FC = ({ journeys, setJourneys }) => {
+//not sure what tyoe should journeys be 
+type callBackFunction = () => void;
+interface Props {
+  journeys: string;
+  setJourneys: callBackFunction;
+}
+const AddTrip: React.FC<Props> = ({ journeys, setJourneys }) => {
   const [modal, setModal] = useState(false);
 
   const toggleModal = () => {
