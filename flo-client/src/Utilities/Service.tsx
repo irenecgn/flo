@@ -1,5 +1,19 @@
 const baseURL = 'http://localhost:3030/journeys';
 
+interface Note{
+  id : string; note : string; _id: string;
+}
+
+type restaurant = {
+  name: string,
+  address: string,
+  cuisineTypes: string,
+  suggestedFor: string,
+  _id: string
+}
+
+
+
 //GET JOURNEY
 export const getAllJourneys = async () => {
   const res = await fetch(baseURL);
@@ -8,14 +22,14 @@ export const getAllJourneys = async () => {
 };
 
 //GET JOURNEY/:ID
-export const getJourneysById = async (id) => {
+export const getJourneysById = async (id: string | undefined) => {
   const res = await fetch(baseURL + '/' + id);
   if (res.status < 400) return await res.json();
   return Promise.reject(res);
 };
 
 //PUT /journeys/:id/notes
-export const addNewNote = async (journeyId, note) => {
+export const addNewNote = async (journeyId: string, note: string) => {
   const res = await fetch(baseURL + `/${journeyId}/notes`, {
     method: 'POST',
     headers: {
@@ -28,14 +42,14 @@ export const addNewNote = async (journeyId, note) => {
 };
 
 // DELETE journeys/:journeyId/notes/:id
-export const deleteNoteById = async (journeyId, id) => {
+export const deleteNoteById = async (journeyId: string, id: string) => {
   await fetch(baseURL + `/${journeyId}/notes/${id}`, {
     method: 'PUT',
   });
 };
 
 // PUT journeys/:journeyId/restaurants/:id
-export const addNewRestaurant = async (journeyId, restaurant) => {
+export const addNewRestaurant = async (journeyId: string, restaurant: any) => {
   const res = await fetch(baseURL + `/${journeyId}/restaurants`, {
     method: 'POST',
     headers: {
@@ -48,7 +62,7 @@ export const addNewRestaurant = async (journeyId, restaurant) => {
 };
 
 //DELETE journeys/:journeyId/restaurants/:id
-export const deleteRestaurantById = async (journeyId, id) => {
+export const deleteRestaurantById = async (journeyId: string, id: string) => {
   await fetch(baseURL + `/${journeyId}/restaurants/${id}`, {
     method: 'PUT',
   });
