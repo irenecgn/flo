@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { EventHandler , FormEvent } from 'react';
 import styled from 'styled-components';
 import { addNewRestaurant, deleteRestaurantById } from '../Utilities/Service';
 import { useEffect, useState } from 'react';
@@ -135,7 +135,17 @@ const Restaurants: React.FC<Props> = ({ journeyId, place }) => {
     setRestaurant(place);
   }, [place]);
 
-  async function handleSubmit(event: any) {
+  interface eventReact {
+    preventDefault :() =>void;
+    target: {name : {value: string},
+    address :  {value: string},
+    cuisineTypes: {value: string},
+    suggestedFor: {value: string}
+    reset :() => void
+  }
+  }
+
+  async function handleSubmit( event : eventReact ) {
     event.preventDefault();
     const restaurantInput = {
       name: event.target.name.value,
@@ -148,6 +158,10 @@ const Restaurants: React.FC<Props> = ({ journeyId, place }) => {
     setRestaurant(newRestaurant.restaurants);
     event.target.reset();
   }
+
+  function myFunction(event :React.FormEvent<HTMLFormElement>) {//console.log("myFunction "+ele)
+    handleSubmit(event as unknown as eventReact);
+}
 
   async function deleteRestaurant(id: string) {
     await deleteRestaurantById(journeyId, id);
@@ -174,7 +188,7 @@ const Restaurants: React.FC<Props> = ({ journeyId, place }) => {
             );
           })}
       </ContainerCard>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={(ev)=>myFunction(ev)}>
         <Input type='text' name='name' placeholder='Name' required></Input>
 
         <Input
