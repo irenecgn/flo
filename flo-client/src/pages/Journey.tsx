@@ -11,7 +11,7 @@ import Header from '../components/Header';
 import FullContainer from '../components/FullContainer';
 import Container from '../components/Container';
 
-const Photo = styled.div`
+const Photo = styled.div<StyleProps>`
   width: 100%;
   min-height: 300px;
   height: 25vw;
@@ -50,6 +50,10 @@ const Section = styled.h2`
   color: #25292d;
 `;
 
+interface StyleProps {
+  src: string;
+}
+
 type journey = {
   coordinates: {
     lat: number,
@@ -66,12 +70,24 @@ type journey = {
 type stage = {
   title: string,
   description: string,
-  todos: todo[]
+  todos: Todos[]
 }
 
 type todo = {
   name: string,
   completed: boolean
+}
+
+type todoDay = {
+  title: string;
+  name: string;
+
+}
+
+type day = {
+  title: string;
+  description: string;
+  todos : todoDay[]
 }
 
 const Journey: React.FC = () => {
