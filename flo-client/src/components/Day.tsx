@@ -37,8 +37,22 @@ const Label = styled.label`
   font-weight: normal;
   color: #25292d;
 `;
+interface Todos{
+  title: string;
+  name: string;
 
-const Day: React.FC = ({ daysDescription }) => {
+}
+
+
+interface Props{
+  daysDescription : {
+    title: string;
+    description: string;
+    todos : Todos[]
+
+  }
+}
+const Day: React.FC<Props> = ({ daysDescription }) => {
   return (
     <Detail>
       <Title key={daysDescription.title}>
