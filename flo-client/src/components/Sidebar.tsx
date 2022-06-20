@@ -29,7 +29,7 @@ const Travel = styled(Link)`
   height: auto;
 `;
 
-const BuildingContainer = styled.div`
+const BuildingContainer = styled.div<StyleProps>`
   border-radius: 50%;
   height: 64px;
   width: 64px;
@@ -56,7 +56,39 @@ const CalendarContainer = styled.div`
   color: #737577;
 `;
 
-const SideBar: React.FC = ({ journeys }) => {
+interface StyleProps {
+  src: string;
+}
+
+interface Props {
+  journeys: journey[];
+}
+
+type journey = {
+  coordinates: {
+    lat: number,
+    lng: number
+  },
+  coverImg: string,
+  durationInDays: number,
+  title: string,
+  _id: string,
+  accomodation: string,
+  stages: stage[],
+}
+
+type stage = {
+  title: string,
+  description: string,
+  todos: todo[]
+}
+
+type todo = {
+  name: string,
+  completed: boolean
+}
+
+const SideBar: React.FC<Props> = ({ journeys }) => {
   return (
     <Travelscroll>
       {journeys &&
