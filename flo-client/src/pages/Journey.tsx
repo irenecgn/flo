@@ -50,13 +50,48 @@ const Section = styled.h2`
   color: #25292d;
 `;
 
+type journey = {
+  coordinates: {
+    lat: number,
+    lng: number
+  },
+  coverImg: string,
+  durationInDays: number,
+  title: string,
+  _id: string,
+  accomodation: string,
+  stages: stage[],
+}
+
+type stage = {
+  title: string,
+  description: string,
+  todos: todo[]
+}
+
+type todo = {
+  name: string,
+  completed: boolean
+}
+
 const Journey: React.FC = () => {
   let { id } = useParams();
 
-  const [journey, setJourney] = useState([]);
+  const [journey, setJourney] = useState<journey>({
+    coordinates: {
+      lat: 0,
+      lng: 0
+    },
+    coverImg: '',
+    durationInDays: 0,
+    title: '',
+    _id: '',
+    accomodation: '',
+    stages: [],
+  });
 
   const journeyById = useCallback(
-    async (id) => {
+    async (id: string | undefined) => {
       const journeyData = await getJourneysById(id);
       setJourney(journeyData);
     },
