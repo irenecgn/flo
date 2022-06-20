@@ -3,6 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
+declare module "react-google-maps" {
+  export var GoogleMap: GoogleMap;
+}
+
+interface GoogleMap {
+    (any): any;
+}
+
 
 ReactDOM.render(
   <App />,

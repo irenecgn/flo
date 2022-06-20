@@ -14,7 +14,16 @@ const containerStyle = {
 
 const API_KEY = process.env.REACT_APP_GMAPS_API_KEY;
 
-const Map: React.FC = ({ journeys }) => {
+interface Journey{
+    _id : string,
+    coordinates : string,
+
+  }
+
+interface Props{
+  journeys : Journey[]
+}
+const Map: React.FC<Props> = ({ journeys }) => {
   const mapOptions = {
     mapTypeControl: false,
     scaleControl: false,
