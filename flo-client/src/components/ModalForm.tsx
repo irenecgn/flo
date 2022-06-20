@@ -32,11 +32,11 @@ const ModalForm: React.FC = () => {
 
       <h1>Schedule</h1>
       <label>Title</label>
-      <Input typeText></Input>
+      <Input type='text' ></Input>
       <label>Description</label>
-      <Input typeText></Input>
+      <Input type='text'></Input>
       <label>Todos</label>
-      <Input typeText></Input>
+      <Input type='text'></Input>
     </Form>
   );
 }
