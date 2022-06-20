@@ -15,7 +15,24 @@ const Scheduletitle = styled.h1`
   font-weight: 600;
 `;
 
-const Stages: React.FC = ({ days }) => {
+type todo = {
+  title: string;
+  name: string;
+
+}
+
+type day = {
+  title: string;
+  description: string;
+  todos : todo[]
+}
+
+
+interface Props{
+  days: day[]
+}
+
+const Stages: React.FC<Props> = ({ days }) => {
   const [isOpen, setOpen] = useState(false);
 
   const handleToggle = () => {
