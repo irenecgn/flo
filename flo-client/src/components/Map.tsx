@@ -1,4 +1,5 @@
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
+import { journey } from '../interfaces/journey';
 
 import Location from './Location';
 
@@ -14,14 +15,8 @@ const containerStyle = {
 
 const API_KEY = process.env.REACT_APP_GMAPS_API_KEY;
 
-interface Journey{
-    _id : string,
-    coordinates : string,
-
-  }
-
 interface Props{
-  journeys : Journey[]
+  journeys : journey[]
 }
 const Map: React.FC<Props> = ({ journeys }) => {
   const mapOptions = {

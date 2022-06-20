@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Todos } from '../interfaces/todos';
 
 const Title = styled.div`
   border-radius: 32px;
@@ -37,12 +38,6 @@ const Label = styled.label`
   font-weight: normal;
   color: #25292d;
 `;
-interface Todos{
-  title: string;
-  name: string;
-
-}
-
 
 interface Props{
   daysDescription : {
