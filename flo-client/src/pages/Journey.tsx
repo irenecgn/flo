@@ -65,6 +65,15 @@ type journey = {
   _id: string,
   accomodation: string,
   stages: stage[],
+  restaurants: restaurant[]
+}
+
+type restaurant = {
+  name: string,
+  address: string,
+  cuisineTypes: string,
+  suggestedFor: string,
+  _id: string
 }
 
 type stage = {
@@ -73,21 +82,16 @@ type stage = {
   todos: Todos[]
 }
 
-type todo = {
+type Todos = {
   name: string,
-  completed: boolean
+  completed: boolean,
+  title: string
 }
 
 type todoDay = {
   title: string;
   name: string;
 
-}
-
-type day = {
-  title: string;
-  description: string;
-  todos : todoDay[]
 }
 
 const Journey: React.FC = () => {
@@ -104,6 +108,7 @@ const Journey: React.FC = () => {
     _id: '',
     accomodation: '',
     stages: [],
+    restaurants: []
   });
 
   const journeyById = useCallback(

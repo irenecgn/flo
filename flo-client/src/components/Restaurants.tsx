@@ -94,8 +94,21 @@ const Infos = styled.p`
   padding: 2px;
 `;
 
-const Restaurants: React.FC = ({ journeyId, place }) => {
-  const [restaurant, setRestaurant] = useState([]);
+type restaurant = {
+  name: string,
+  address: string,
+  cuisineTypes: string,
+  suggestedFor: string,
+  _id: string
+}
+
+interface Props {
+  place: restaurant[],
+  journeyId: string
+}
+
+const Restaurants: React.FC<Props> = ({ journeyId, place }) => {
+  const [restaurant, setRestaurant] = useState<restaurant[]>([]);
 
   useEffect(() => {
     setRestaurant(place);
@@ -115,7 +128,7 @@ const Restaurants: React.FC = ({ journeyId, place }) => {
     event.target.reset();
   }
 
-  async function deleteRestaurant(id) {
+  async function deleteRestaurant(id: string) {
     await deleteRestaurantById(journeyId, id);
     return setRestaurant((prevState) => {
       return prevState.filter((el) => el._id !== id);
