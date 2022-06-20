@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { addNewRestaurant, deleteRestaurantById } from '../Utilities/Service';
 import { useEffect, useState } from 'react';
+import { restaurant } from '../interfaces/restaurant';
 
 const Container = styled.div`
   display: flex;
@@ -93,35 +94,6 @@ const Infos = styled.p`
   margin: 0px;
   padding: 2px;
 `;
-
-interface EventTarget {
-  addEventListener(type: string, listener: EventListenerOrEventListenerObject, useCapture?: boolean): void;
-  dispatchEvent(evt: Event): boolean;
-  removeEventListener(type: string, listener: EventListenerOrEventListenerObject, useCapture?: boolean): void;
-}
-
-interface SyntheticEvent {
-  bubbles: boolean;
-  cancelable: boolean;
-  currentTarget: EventTarget;
-  defaultPrevented: boolean;
-  eventPhase: number;
-  isTrusted: boolean;
-  nativeEvent: Event;
-  preventDefault(): void;
-  stopPropagation(): void;
-  target: EventTarget;
-  timeStamp: Date;
-  type: string;
-}
-
-type restaurant = {
-  name: string,
-  address: string,
-  cuisineTypes: string,
-  suggestedFor: string,
-  _id: string
-}
 
 interface Props {
   place: restaurant[],
