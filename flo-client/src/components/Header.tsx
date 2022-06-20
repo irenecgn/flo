@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { PlaneDeparture } from '@mountain-ui/icons';
+import BlurredBox from './BlurredBox';
 
 const logo =  require('../images/flologo.png');
-import BlurredBox from './BlurredBox';
+
 
 const Search = styled.div`
   display: flex;
