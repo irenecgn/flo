@@ -29,7 +29,7 @@ export const getJourneysById = async (id: string | undefined) => {
 };
 
 //PUT /journeys/:id/notes
-export const addNewNote = async (journeyId: string, note: Note) => {
+export const addNewNote = async (journeyId: string, note: string) => {
   const res = await fetch(baseURL + `/${journeyId}/notes`, {
     method: 'POST',
     headers: {
@@ -49,7 +49,7 @@ export const deleteNoteById = async (journeyId: string, id: string) => {
 };
 
 // PUT journeys/:journeyId/restaurants/:id
-export const addNewRestaurant = async (journeyId: string, restaurant: restaurant) => {
+export const addNewRestaurant = async (journeyId: string, restaurant: any) => {
   const res = await fetch(baseURL + `/${journeyId}/restaurants`, {
     method: 'POST',
     headers: {
