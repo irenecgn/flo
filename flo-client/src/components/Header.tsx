@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { PlaneDeparture } from '@mountain-ui/icons';
 import BlurredBox from './BlurredBox';
+import { ChangeEventHandler } from 'react';
 
 const logo =  require('../images/flologo.png');
 
@@ -32,7 +33,7 @@ const Image = styled.img`
   border-radius: 4px;
 `;
 interface Props{
-  onChange : boolean | any;
+  onChange : ChangeEventHandler | undefined;
 }
 
 const Header: React.FC <Props>= ({ onChange }) => {
