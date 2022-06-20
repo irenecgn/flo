@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { PlaneDeparture } from '@mountain-ui/icons';
 
-import logo from '../images/flologo.png';
+const logo =  require('../images/flologo.png');
 import BlurredBox from './BlurredBox';
 
 const Search = styled.div`
@@ -30,8 +30,11 @@ const Image = styled.img`
   height: 100%;
   border-radius: 4px;
 `;
+interface Props{
+  onChange : boolean | any;
+}
 
-const Header: React.FC = ({ onChange }) => {
+const Header: React.FC <Props>= ({ onChange }) => {
   return (
     <BlurredBox as='header'>
       <Link to='/'>
