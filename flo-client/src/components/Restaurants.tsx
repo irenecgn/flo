@@ -94,14 +94,48 @@ const Infos = styled.p`
   padding: 2px;
 `;
 
-const Restaurants: React.FC = ({ journeyId, place }) => {
-  const [restaurant, setRestaurant] = useState([]);
+interface EventTarget {
+  addEventListener(type: string, listener: EventListenerOrEventListenerObject, useCapture?: boolean): void;
+  dispatchEvent(evt: Event): boolean;
+  removeEventListener(type: string, listener: EventListenerOrEventListenerObject, useCapture?: boolean): void;
+}
+
+interface SyntheticEvent {
+  bubbles: boolean;
+  cancelable: boolean;
+  currentTarget: EventTarget;
+  defaultPrevented: boolean;
+  eventPhase: number;
+  isTrusted: boolean;
+  nativeEvent: Event;
+  preventDefault(): void;
+  stopPropagation(): void;
+  target: EventTarget;
+  timeStamp: Date;
+  type: string;
+}
+
+type restaurant = {
+  name: string,
+  address: string,
+  cuisineTypes: string,
+  suggestedFor: string,
+  _id: string
+}
+
+interface Props {
+  place: restaurant[],
+  journeyId: string
+}
+
+const Restaurants: React.FC<Props> = ({ journeyId, place }) => {
+  const [restaurant, setRestaurant] = useState<restaurant[]>([]);
 
   useEffect(() => {
     setRestaurant(place);
   }, [place]);
 
-  async function handleSubmit(event) {
+  async function handleSubmit(event: any) {
     event.preventDefault();
     const restaurantInput = {
       name: event.target.name.value,
@@ -115,7 +149,7 @@ const Restaurants: React.FC = ({ journeyId, place }) => {
     event.target.reset();
   }
 
-  async function deleteRestaurant(id) {
+  async function deleteRestaurant(id: string) {
     await deleteRestaurantById(journeyId, id);
     return setRestaurant((prevState) => {
       return prevState.filter((el) => el._id !== id);

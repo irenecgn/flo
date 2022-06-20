@@ -15,21 +15,33 @@ const Scheduletitle = styled.h1`
   font-weight: 600;
 `;
 
-type todo = {
-  title: string;
-  name: string;
+// type todo = {
+//   title: string;
+//   name: string;
 
+// }
+
+// type day = {
+//   title: string;
+//   description: string;
+//   todos : todo[]
+// }
+
+type stage = {
+  title: string,
+  description: string,
+  todos: Todos[]
 }
 
-type day = {
-  title: string;
-  description: string;
-  todos : todo[]
+type Todos = {
+  name: string,
+  title: string,
+  completed: boolean
 }
 
 
 interface Props{
-  days: day[]
+  days: stage[]
 }
 
 const Stages: React.FC<Props> = ({ days }) => {

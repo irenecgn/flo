@@ -11,7 +11,7 @@ import Header from '../components/Header';
 import FullContainer from '../components/FullContainer';
 import Container from '../components/Container';
 
-const Photo = styled.div`
+const Photo = styled.div<StyleProps>`
   width: 100%;
   min-height: 300px;
   height: 25vw;
@@ -50,13 +50,69 @@ const Section = styled.h2`
   color: #25292d;
 `;
 
+interface StyleProps {
+  src: string;
+}
+
+interface Note{
+  id : string; note : string; _id: string;
+}
+
+type journey = {
+  coordinates: {
+    lat: number,
+    lng: number
+  },
+  coverImg: string,
+  durationInDays: number,
+  title: string,
+  _id: string,
+  accomodation: string,
+  stages: stage[],
+  restaurants: restaurant[],
+  notes: Note[]
+}
+
+type restaurant = {
+  name: string,
+  address: string,
+  cuisineTypes: string,
+  suggestedFor: string,
+  _id: string
+}
+
+type stage = {
+  title: string,
+  description: string,
+  todos: Todos[]
+}
+
+type Todos = {
+  name: string,
+  completed: boolean,
+  title: string
+}
+
 const Journey: React.FC = () => {
   let { id } = useParams();
 
-  const [journey, setJourney] = useState([]);
+  const [journey, setJourney] = useState<journey>({
+    coordinates: {
+      lat: 0,
+      lng: 0
+    },
+    coverImg: '',
+    durationInDays: 0,
+    title: '',
+    _id: '',
+    accomodation: '',
+    stages: [],
+    restaurants: [],
+    notes: []
+  });
 
   const journeyById = useCallback(
-    async (id) => {
+    async (id: string | undefined) => {
       const journeyData = await getJourneysById(id);
       setJourney(journeyData);
     },
@@ -67,10 +123,14 @@ const Journey: React.FC = () => {
     journeyById(id);
   }, [journeyById, id]);
 
+  const onChange = () => {
+    return true;
+  }
+
   return (
     <FullContainer>
       <FullContainer>
-        <Header />
+        <Header onChange = {onChange}/>
         <Photo src={journey.coverImg}></Photo>
         <TitleContainer>
           <Container>
