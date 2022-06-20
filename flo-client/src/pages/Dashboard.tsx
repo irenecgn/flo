@@ -11,6 +11,45 @@ const MapContainer = styled(FullContainer)`
   height: 100%;
 `;
 
+interface Note{
+  id : string; note : string; _id: string;
+}
+
+type journey = {
+  coordinates: {
+    lat: number,
+    lng: number
+  },
+  coverImg: string,
+  durationInDays: number,
+  title: string,
+  _id: string,
+  accomodation: string,
+  stages: stage[],
+  restaurants: restaurant[],
+  notes: Note[]
+}
+
+type restaurant = {
+  name: string,
+  address: string,
+  cuisineTypes: string,
+  suggestedFor: string,
+  _id: string
+}
+
+type stage = {
+  title: string,
+  description: string,
+  todos: Todos[]
+}
+
+type Todos = {
+  name: string,
+  completed: boolean,
+  title: string
+}
+
 const Dashboard: React.FC = () => {
   const [journeys, setJourneys] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
@@ -26,12 +65,12 @@ const Dashboard: React.FC = () => {
     getJourneys();
   }, []);
 
-  const handleChange = (event) => {
+  const handleChange = (event: any) => {
     const value = event.target.value.toLowerCase();
     setSearchQuery(value);
   };
 
-  const filteredJourneys = journeys.filter((journey) =>
+  const filteredJourneys = journeys.filter((journey: journey) =>
     journey.title.toLowerCase().includes(searchQuery)
   );
 
