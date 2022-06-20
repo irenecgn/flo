@@ -94,6 +94,27 @@ const Infos = styled.p`
   padding: 2px;
 `;
 
+interface EventTarget {
+  addEventListener(type: string, listener: EventListenerOrEventListenerObject, useCapture?: boolean): void;
+  dispatchEvent(evt: Event): boolean;
+  removeEventListener(type: string, listener: EventListenerOrEventListenerObject, useCapture?: boolean): void;
+}
+
+interface SyntheticEvent {
+  bubbles: boolean;
+  cancelable: boolean;
+  currentTarget: EventTarget;
+  defaultPrevented: boolean;
+  eventPhase: number;
+  isTrusted: boolean;
+  nativeEvent: Event;
+  preventDefault(): void;
+  stopPropagation(): void;
+  target: EventTarget;
+  timeStamp: Date;
+  type: string;
+}
+
 type restaurant = {
   name: string,
   address: string,
@@ -114,7 +135,7 @@ const Restaurants: React.FC<Props> = ({ journeyId, place }) => {
     setRestaurant(place);
   }, [place]);
 
-  async function handleSubmit(event) {
+  async function handleSubmit(event: any) {
     event.preventDefault();
     const restaurantInput = {
       name: event.target.name.value,

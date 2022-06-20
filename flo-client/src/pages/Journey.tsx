@@ -54,6 +54,10 @@ interface StyleProps {
   src: string;
 }
 
+interface Note{
+  id : string; note : string; _id: string;
+}
+
 type journey = {
   coordinates: {
     lat: number,
@@ -65,7 +69,8 @@ type journey = {
   _id: string,
   accomodation: string,
   stages: stage[],
-  restaurants: restaurant[]
+  restaurants: restaurant[],
+  notes: Note[]
 }
 
 type restaurant = {
@@ -88,12 +93,6 @@ type Todos = {
   title: string
 }
 
-type todoDay = {
-  title: string;
-  name: string;
-
-}
-
 const Journey: React.FC = () => {
   let { id } = useParams();
 
@@ -108,7 +107,8 @@ const Journey: React.FC = () => {
     _id: '',
     accomodation: '',
     stages: [],
-    restaurants: []
+    restaurants: [],
+    notes: []
   });
 
   const journeyById = useCallback(
@@ -123,10 +123,14 @@ const Journey: React.FC = () => {
     journeyById(id);
   }, [journeyById, id]);
 
+  const onChange = () => {
+    return true;
+  }
+
   return (
     <FullContainer>
       <FullContainer>
-        <Header />
+        <Header onChange = {onChange}/>
         <Photo src={journey.coverImg}></Photo>
         <TitleContainer>
           <Container>
