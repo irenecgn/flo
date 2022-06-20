@@ -1,18 +1,6 @@
+import { Note } from '../interfaces/note';
+import { restaurant } from '../interfaces/restaurant'
 const baseURL = 'http://localhost:3030/journeys';
-
-interface Note{
-  id : string; note : string; _id: string;
-}
-
-type restaurant = {
-  name: string,
-  address: string,
-  cuisineTypes: string,
-  suggestedFor: string,
-  _id: string
-}
-
-
 
 //GET JOURNEY
 export const getAllJourneys = async () => {

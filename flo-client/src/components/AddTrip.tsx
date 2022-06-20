@@ -3,7 +3,7 @@ import { Plus } from '@mountain-ui/icons';
 import React from 'react';
 import BlurredBox from './BlurredBox';
 import { useState } from 'react';
-import { Note } from './AddNotes'
+import { Note } from '../interfaces/note';
 
 const StyledAddTrip = styled(BlurredBox)`
   display: flex;

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Day from './Day';
+import { stage } from '../interfaces/stage';
 import { useState } from 'react';
 
 const Daycard = styled.li`
@@ -14,30 +15,6 @@ const Scheduletitle = styled.h1`
   font-size: 28px;
   font-weight: 600;
 `;
-
-// type todo = {
-//   title: string;
-//   name: string;
-
-// }
-
-// type day = {
-//   title: string;
-//   description: string;
-//   todos : todo[]
-// }
-
-type stage = {
-  title: string,
-  description: string,
-  todos: Todos[]
-}
-
-type Todos = {
-  name: string,
-  title: string,
-  completed: boolean
-}
 
 
 interface Props{

@@ -2,10 +2,10 @@ import React from 'react';
 import { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import { getJourneysById } from '../Utilities/Service';
+import { journey } from '../interfaces/journey';
 import styled from 'styled-components';
 import Schedule from '../components/Schedule';
 import Restaurant from '../components/Restaurants';
-
 import AddNotes from '../components/AddNotes';
 import Header from '../components/Header';
 import FullContainer from '../components/FullContainer';
@@ -54,44 +54,6 @@ interface StyleProps {
   src: string;
 }
 
-interface Note{
-  id : string; note : string; _id: string;
-}
-
-type journey = {
-  coordinates: {
-    lat: number,
-    lng: number
-  },
-  coverImg: string,
-  durationInDays: number,
-  title: string,
-  _id: string,
-  accomodation: string,
-  stages: stage[],
-  restaurants: restaurant[],
-  notes: Note[]
-}
-
-type restaurant = {
-  name: string,
-  address: string,
-  cuisineTypes: string,
-  suggestedFor: string,
-  _id: string
-}
-
-type stage = {
-  title: string,
-  description: string,
-  todos: Todos[]
-}
-
-type Todos = {
-  name: string,
-  completed: boolean,
-  title: string
-}
 
 const Journey: React.FC = () => {
   let { id } = useParams();

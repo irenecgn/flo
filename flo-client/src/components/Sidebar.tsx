@@ -3,6 +3,7 @@ import BlurredBox from './BlurredBox';
 import { CalendarAlt } from '@mountain-ui/icons';
 import { Building } from '@mountain-ui/icons';
 import { Link } from 'react-router-dom';
+import { journey } from '../interfaces/journey';
 
 const Travelscroll = styled.div`
   width: 360px;
@@ -64,29 +65,6 @@ interface Props {
   journeys: journey[];
 }
 
-type journey = {
-  coordinates: {
-    lat: number,
-    lng: number
-  },
-  coverImg: string,
-  durationInDays: number,
-  title: string,
-  _id: string,
-  accomodation: string,
-  stages: stage[],
-}
-
-type stage = {
-  title: string,
-  description: string,
-  todos: todo[]
-}
-
-type todo = {
-  name: string,
-  completed: boolean
-}
 
 const SideBar: React.FC<Props> = ({ journeys }) => {
   return (

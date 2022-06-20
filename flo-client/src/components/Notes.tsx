@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { deleteNoteById } from '../Utilities/Service';
 import { Trash } from '@mountain-ui/icons';
-import { Note } from './AddNotes'
+import { Note } from '../interfaces/note';
 
 const ContainerCard = styled.div`
   width: 800px;
@@ -44,10 +44,7 @@ const ButtonDelete = styled.button`
   height: 24px;
   background-color: rgba(250, 250, 250, 0.9);
 `;
-// interface Note{
-//   _id: string;
-//   id : string; note : string;
-// }
+
 interface Notefunction{
   nFunction : (notes : Note[])=> Note[]
 }
