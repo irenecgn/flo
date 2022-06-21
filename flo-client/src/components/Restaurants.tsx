@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { addNewRestaurant, deleteRestaurantById } from '../Utilities/Service';
 import { useEffect, useState } from 'react';
 import { restaurant } from '../interfaces/restaurant';
+import { eventReact } from '../interfaces/eventReact';
 
 const Container = styled.div`
   display: flex;
@@ -107,15 +108,6 @@ const Restaurants: React.FC<Props> = ({ journeyId, place }) => {
     setRestaurant(place);
   }, [place]);
 
-  interface eventReact {
-    preventDefault :() =>void;
-    target: {name : {value: string},
-    address :  {value: string},
-    cuisineTypes: {value: string},
-    suggestedFor: {value: string}
-    reset :() => void
-  }
-  }
 
   async function handleSubmit( event : eventReact ) {
     event.preventDefault();
@@ -131,7 +123,7 @@ const Restaurants: React.FC<Props> = ({ journeyId, place }) => {
     event.target.reset();
   }
 
-  function myFunction(event :React.FormEvent<HTMLFormElement>) {//console.log("myFunction "+ele)
+  function myFunction(event :React.FormEvent<HTMLFormElement>) {
     handleSubmit(event as unknown as eventReact);
 }
 
