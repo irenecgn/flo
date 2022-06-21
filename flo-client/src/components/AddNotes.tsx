@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import React, { Dispatch, useEffect, useState } from 'react';
 
 import { addNewNote } from '../Utilities/Service';
+import { eventReact } from '../interfaces/eventReact';
 import Notes from './Notes';
  
 const Container = styled.div`
@@ -104,7 +105,7 @@ type Todos = {
   title: string
 }
 
-type callBackFunction = () => void;
+
 interface Props {
   journey: {_id: string};
   notes: Note[];
@@ -117,14 +118,6 @@ const AddNotes: React.FC<Props> = ({ journey, notes, setJourney }) => {
     setNote(notes);
   }, [notes]);
 
-  interface eventReact {
-    preventDefault :callBackFunction;
-    target: {note : {value: string},
-    reset: callBackFunction
-    }
-  }
-  //should we hack this?
-  //suggestion to assign noteInput to a prop
   async function handleSubmit ( event : eventReact) {
     event.preventDefault();
     const noteInput = event.target.note.value;
