@@ -23,5 +23,4 @@ yarn-debug.log*
 yarn-error.log*
 
 # secret folder 
-.API_KEY
-.AIzaSyD2Tw5TQfpJYUKOVMBBNB
+
