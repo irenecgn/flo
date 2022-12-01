@@ -110,7 +110,6 @@ function Restaurants({ journeyId, place }) {
       suggestedFor: event.target.suggestedFor.value,
     };
     const newRestaurant = await addNewRestaurant(journeyId, restaurantInput);
-    console.log(newRestaurant.restaurants);
     setRestaurant(newRestaurant.restaurants);
     event.target.reset();
   }

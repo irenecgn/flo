@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import irene from '../images/irenecgn.png';
 import BlurredBox from './BlurredBox';
 import { CalendarAlt } from '@mountain-ui/icons';
 import { Building } from '@mountain-ui/icons';
